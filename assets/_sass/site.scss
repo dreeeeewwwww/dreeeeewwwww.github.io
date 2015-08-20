@@ -50,7 +50,13 @@ footer{
 /*ABOUT*/
 #discogs{
 
-  .release{
-    margin-bottom:15px;
+  tr{
+
+    @include transition(all 0.2s ease-in-out);
+    &:hover{
+      cursor: pointer;
+      color:$rose;
+      background:$offwhite;
+    }
   }
 }
