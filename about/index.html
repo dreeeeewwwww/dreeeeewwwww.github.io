@@ -7,6 +7,7 @@ layout: default
     <div class="col-md-12">
       <h1>ABOUT</h1>
       <div id="discogs">
+        <ul id="collection"></ul>
         <ul id="foo"></ul>
       </div>
     </div>
@@ -15,12 +16,22 @@ layout: default
 <script type="text/javascript">
 $(document).ready(function(){
   jQuery.getJSON("http://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=", function(data) {
-    $.each(data.releases.basic_information, function(key,value){
-      content = '<li>' + value.artists + value.title + value.year + value.resource_url + '</li>';
 
-      $(content).appendTo("#foo");
+    $.each(data.releases, function(entryIndex,release){
+      content =
+      '<li>'+
+      '<a href="http://www.discogs.com/release/'+release.basic_information.id+'">'+
+      release.basic_information.artists+
+      release.basic_information.title+
+      release.basic_information.year+
+      '</a>'
+      '</li>';
+
+      $(content).appendTo("#collection");
+
+
     });
-    $("#discogs").append("shit");
+
   });
 });
 </script>
