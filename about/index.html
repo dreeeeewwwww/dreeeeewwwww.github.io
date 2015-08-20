@@ -14,25 +14,13 @@ layout: default
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
-    jQuery.getJSON("http://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=", function(data) {
+  jQuery.getJSON("http://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=", function(data) {
+    $.each(data.releases.basic_information, function(key,value){
+      content = '<li>' + value.artists + value.title + value.year + value.resource_url + '</li>';
 
-      $.each(data.releases.basic_information, function(key,value){
-        content = '<li>' + value.artists + value.title + value.year + value.resource_url + '</li>';
-
-        $(content).appendTo("#foo");
-      });
-
-      $("#discogs").append("shit");
-
-
-
-
+      $(content).appendTo("#foo");
     });
+    $("#discogs").append("shit");
+  });
 });
-
-
-
-
-
-
 </script>
