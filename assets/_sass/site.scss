@@ -21,7 +21,6 @@ footer{
   padding-top:30px;
   padding-bottom:30px;
 
-
   ul{
     list-style:none;
     margin:0;
@@ -32,7 +31,6 @@ footer{
     }
   }
 }
-
 /*WORK*/
 .grid{
 
@@ -46,17 +44,34 @@ footer{
 
   }
 }
-
 /*ABOUT*/
-#discogs{
+.discogs-table{
+  min-height:200px;
 
-  tr{
+  #discogs-collection{
 
-    @include transition(all 0.2s ease-in-out);
-    &:hover{
-      cursor: pointer;
-      color:$rose;
-      background:$offwhite;
+    .discogs-spinner{
+      position:absolute;
+      top:90px;
+      left:50%;
+      margin-left:-29px;
+
+      td{
+        border:none;
+        text-align:center;
+      }
+    }
+    .discogs-error{
+      color:$rose !important;
+    }
+    tr{
+
+      @include transition(all 0.2s ease-in-out);
+      &:hover{
+        cursor: pointer;
+        color:$rose;
+        background:$offwhite;
+      }
     }
   }
 }
