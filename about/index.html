@@ -6,32 +6,32 @@ layout: default
   <div class="row">
     <div class="col-md-12">
       <h1>ABOUT</h1>
-      <div id="discogs">
-        <ul id="collection"></ul>
-        <ul id="foo"></ul>
+
+      <div class="row">
+        <div class="col-md-12">
+          <strong>Recent additions to my record collection</strong><span class="pull-right">via discogs</span>
+        </div>
+        <div id="discogs"></div>
+
       </div>
+
     </div>
   </div>
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
-  jQuery.getJSON("http://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=", function(data) {
-
-    $.each(data.releases, function(entryIndex,release){
+  jQuery.getJSON("http://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=&sort=added&sort_order=desc", function(data) {
+    $.each(data.releases, function(i,release){
       content =
-      '<li>'+
-      '<a href="http://www.discogs.com/release/'+release.basic_information.id+'">'+
-      release.basic_information.artists+
+      '<div class="col-md-3 col-sm-4 col-xs-6 release">'+
+      '<a href="http://www.discogs.com/release/'+release.basic_information.id+'" target="_blank">'+
+      release.basic_information.artists[0].name+'&nbsp;-&nbsp;'+
       release.basic_information.title+
-      release.basic_information.year+
+      '<br /><span class="label-year">'+release.basic_information.labels[0].name+'&nbsp;('+release.basic_information.year+')'+'</span>'
       '</a>'
-      '</li>';
-
-      $(content).appendTo("#collection");
-
-
+      '</div>';
+      $(content).appendTo("#discogs");
     });
-
   });
 });
 </script>
