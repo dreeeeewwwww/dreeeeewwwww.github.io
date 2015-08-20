@@ -9,10 +9,22 @@ layout: default
 
       <div class="row">
         <div class="col-md-12">
-          <strong>Recent additions to my record collection</strong><span class="pull-right">via discogs</span>
+          Recent additions to my record collection<span class="pull-right">via discogs</span>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Artist</th>
+                <th>Title</th>
+                <th>Label</th>
+                <th>Format</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody id="discogs">
+              <i class="fa fa-circle-o-notch fa-spin fa-2x discogs-spinner"></i>
+            </tbody>
+          </table>
         </div>
-        <div id="discogs"></div>
-
       </div>
 
     </div>
@@ -20,19 +32,14 @@ layout: default
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
+  $(".discogs-spinner").show();
   jQuery.getJSON("http://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=&sort=added&sort_order=desc", function(data) {
+    $(".discogs-spinner").hide();
     $.each(data.releases, function(i,release){
       content =
-      '<div class="col-md-3 col-sm-4 col-xs-6 release">'+
-      '<a href="http://www.discogs.com/release/'+release.basic_information.id+'" target="_blank">'+
-      release.basic_information.artists[0].name+'&nbsp;-&nbsp;'+
-      release.basic_information.title+
-      '<br /><span class="label-year">'+release.basic_information.labels[0].name+'&nbsp;('+release.basic_information.year+')'+'</span>'
-      '</a>'
-      '</div>';
+      '<tr><a href="http://www.discogs.com/release/'+release.basic_information.id+'" target="_blank"><td>'+release.basic_information.artists[0].name+'</td><td>'+release.basic_information.title+'</td><td>'+release.basic_information.labels[0].name+'</td><td>'+release.basic_information.formats[0].descriptions[0]+'</td><td>'+release.basic_information.year+'</td></a></tr>';
       $(content).appendTo("#discogs");
     });
   });
 });
 </script>
-foo
