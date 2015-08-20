@@ -32,17 +32,35 @@ footer{
   }
 }
 /*WORK*/
-.grid{
-
-  .grid-item{
-    width:29%;
-    margin:2%;
+.waterfall{
+  
+  div{
 
     img{
       width:100%;
     }
-
   }
+}
+
+
+.grid{
+
+  .grid-sizer, .grid-item{
+    width:16%;
+  }
+  .gutter-sizer{
+    width:4%;
+  }
+  .grid-item{
+    margin-bottom:4%;
+
+    img{
+    }
+  }
+  .grid-item--width2 { width: 32%; }
+  .grid-item--width3 { width: 60%; }
+  .grid-item--width4 { width: 80%; }
+  .grid-item--width5 { width: 100%; }
 }
 /*ABOUT*/
 .discogs-table{
