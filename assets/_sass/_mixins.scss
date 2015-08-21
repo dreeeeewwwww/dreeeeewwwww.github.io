@@ -49,3 +49,10 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
   filter: alpha(opacity=$IEValue);
 }
+@mixin transform($transform) {
+	   -moz-transform: $transform;
+	     -o-transform: $transform;
+	    -ms-transform: $transform;
+	-webkit-transform: $transform;
+          transform: $transform;
+}
