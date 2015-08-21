@@ -2,6 +2,9 @@ body{
   font-family:'Lato', 'Helvetica Neue', Helvetica, arial, verdana, sans-serif;
   color:$green;
 }
+.body-copy{
+  color:$body;
+}
 nav{
   padding-top:30px;
   padding-bottom:30px;
@@ -194,7 +197,6 @@ footer{
 }
 /*ABOUT*/
 .collection-pill{
-
   padding:7px 8px;
 
   a{

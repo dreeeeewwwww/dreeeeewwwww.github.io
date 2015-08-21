@@ -8,8 +8,8 @@ layout: default
       {% for post in site.posts %}
         <div class="portfolio-item">
           <img src="{{ post.img }}" class="img-responsive open-carousel" onClick="javascript:goToSlide({{ post.slide }});"/>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <p>{{ post.excerpt }}</p>
+          <p><span class="body-copy">{{ post.title }}</span><br />
+          {{ post.excerpt }}</p>
         </div>
       {% endfor %}
     </div>
