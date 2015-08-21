@@ -8,7 +8,7 @@ layout: default
     <div id="grid" data-columns>
       {% for post in site.posts %}
         <div class="portfolio-item">
-          <img src="{{ post.img }}" class="img-responsive" />
+          <img src="{{ post.img }}" class="img-responsive open-carousel" onClick="javascript:goToSlide({{ post.slide }});"/>
           <a href="{{ post.url }}">{{ post.title }}</a>
           <small>{{ post.tags }}</small>
           <p>{{ post.excerpt }}</p>
@@ -18,4 +18,43 @@ layout: default
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="portfolio-carousel" tabindex="-1" role="dialog" aria-labelledby="portfolio-carousel">
+  <div class="modal-dialog" role="document">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+    <div id="work" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        {% for post in site.posts %}
+          <div class="item">
+            <img src="{{ post.img }}" class="img-responsive open-carousel" />
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <small>{{ post.tags }}</small>
+            <p>{{ post.excerpt }}</p>
+            {{ post.content }}
+          </div>
+        {% endfor %}
+        <a class="left carousel-control" href="#work" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#work" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(".carousel-inner .item").first().addClass("active");
+  $(".open-carousel").on("click", function() {
+    $('#portfolio-carousel').modal('show');
+  });
+  function goToSlide(number) {
+   $("#work").carousel(number);
+  }
+</script>
 <script type="text/javascript" src="assets/javascript/salvattore.min.js"></script>
