@@ -9,24 +9,20 @@ layout: default
         <div class="portfolio-item">
           <img src="{{ post.img }}" class="img-responsive open-carousel" onClick="javascript:goToSlide({{ post.slide }});"/>
           <a href="{{ post.url }}">{{ post.title }}</a>
-          <small>{{ post.tags }}</small>
           <p>{{ post.excerpt }}</p>
-          {{ post.content }}
         </div>
       {% endfor %}
     </div>
   </div>
 </div>
-
 <div class="modal fade" id="portfolio-carousel" tabindex="-1" role="dialog" aria-labelledby="portfolio-carousel">
   <div class="modal-dialog" role="document">
     <div id="work" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
       <div class="carousel-inner" role="listbox">
         {% for post in site.posts %}
           <div class="item">
-            <img src="{{ post.img }}" class="img-responsive open-carousel" />
+            <img src="{{ site.url }}{{ post.img }}" class="img-responsive open-carousel" />
             <a href="{{ post.url }}">{{ post.title }}</a>
-            <small>{{ post.tags }}</small>
             <p>{{ post.excerpt }}</p>
             {{ post.content }}
           </div>
@@ -44,7 +40,6 @@ layout: default
     <span class="sr-only">Next</span>
   </a>
 </div>
-
 <script type="text/javascript">
   $(".carousel-inner .item").first().addClass("active");
   $(".open-carousel").on("click", function() {
