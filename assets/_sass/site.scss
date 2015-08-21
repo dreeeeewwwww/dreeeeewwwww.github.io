@@ -25,7 +25,7 @@ nav{
         padding-bottom:5px;
 
         &:hover{
-          border-bottom:3px solid $rose;
+          border-bottom:3px solid $green;
           color:$green;
         }
       }
@@ -95,12 +95,12 @@ footer{
     top:30px;
     right:30px;
     text-align:center;
-    font-size:1.25em;
-    color:$rose;
+    font-size:2em;
+    color:$white;
     opacity:0.7;
     @include transition(all 0.2s ease-in-out);
     &:hover{
-      color:$rose;
+      color:$white;
       opacity:1;
     }
   }
@@ -166,12 +166,18 @@ footer{
     }
 }
 /* end carousel fade hack */
+.carousel-inner{
+  color:$body;
+  font-weight:400;
+  text-align:center;
+  font-size:2em;
+}
 .carousel-control{
-  font-size:2.5em;
+  font-size:6em;
   position:fixed !important;
   top:45%;
   height:50px !important;
-  color:$rose !important;
+  color:$white !important;
   text-align:auto;
   text-shadow:none;
   z-index:1000;
