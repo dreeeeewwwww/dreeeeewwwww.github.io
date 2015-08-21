@@ -14,7 +14,30 @@ nav{
     li{
       display:inline-block;
       margin-right:30px;
+
+      a{
+        color:$rose;
+        text-decoration:none;
+        border-bottom:3px solid transparent;
+        padding-bottom:5px;
+
+        &:hover{
+          border-bottom:3px solid $rose;
+          color:$green;
+        }
+      }
+      a.active{
+        color:$rose;
+        border-bottom:3px solid $green;
+      }
     }
+  }
+}
+a{
+  @include transition(all 0.2s ease-in-out);
+  text-decoration:none;
+  &:hover{
+    text-decoration:none;
   }
 }
 footer{
@@ -31,6 +54,7 @@ footer{
     }
   }
 }
+
 /*WORK*/
 #grid[data-columns]::before{
   content: '3 .column.size-1of3';
@@ -47,11 +71,12 @@ footer{
       max-width:100%;
       @include box-shadow(none);
       margin-bottom:15px;
-      border:1px solid $offwhite;
+      border:1px solid transparent;
+      border-bottom:1px solid $grey;
       @include transition(all 0.5s ease-in-out);
       &:hover{
         @include box-shadow(-5px 5px 0  $green);
-        border-color:$green;
+        border:1px solid $green;
         cursor:pointer;
       }
     }
@@ -168,6 +193,17 @@ footer{
   }
 }
 /*ABOUT*/
+.collection-pill{
+
+  padding:7px 8px;
+
+  a{
+    color:$green;
+    &:hover{
+      color:$rose;
+    }
+  }
+}
 .discogs-table{
   min-height:200px;
 
@@ -175,7 +211,7 @@ footer{
 
     .discogs-spinner{
       position:absolute;
-      top:90px;
+      top:120px;
       left:50%;
       margin-left:-29px;
 
@@ -198,3 +234,7 @@ footer{
     }
   }
 }
+/* etc */
+.margin-bottom-15{margin-bottom:15px;}
+.margin-bottom-30{margin-bottom:30px;}
+.margin-bottom-60{margin-bottom:60px;}
