@@ -2,15 +2,20 @@
 title: Work
 layout: default
 ---
+
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="waterfall" data-col-min-width="400" data-default-container-width="800" data-autoresize="true">
-        <div><img class="img-responsive" src="http://www.goautographs.com/media/catalog/product/cache/1/image/800x/040ec09b1e35df139433887a97daa66f/2/2/22250MPMO.JPG" /></div>
-        <div ><img class="img-responsive" src="http://i.imgur.com/pUY9O.jpg" /></div>
-        <div class="grid-item grid-item--width2"><img class="img-responsive" src="http://cdn2.epictimes.com/wp-content/uploads/2015/08/skinny-dipping.jpg" /></div>
-        <div ><img class="img-responsive" src="http://i.imgur.com/pUY9O.jpg" /></div>
-      </div>
+    <div id="grid" data-columns>
+      {% for post in site.posts %}
+        <div class="portfolio-item">
+          <img src="{{ post.img }}" class="img-responsive" />
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <small>{{ post.tags }}</small>
+          <p>{{ post.excerpt }}</p>
+          {{ post.content }}
+        </div>
+      {% endfor %}
     </div>
   </div>
 </div>
+<script type="text/javascript" src="assets/javascript/salvattore.min.js"></script>
