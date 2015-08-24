@@ -68,6 +68,8 @@ footer{
 
 #grid{
   .column { float: left; }
+  .size-1of1 { width: 100%; }
+  .size-1of2 { width: 50%; }
   .size-1of3 { width: 33.333%; }
   .portfolio-item{
     padding:30px;
@@ -258,3 +260,20 @@ footer{
 .margin-bottom-15{margin-bottom:15px;}
 .margin-bottom-30{margin-bottom:30px;}
 .margin-bottom-60{margin-bottom:60px;}
+/* MOBILE */
+@media screen and (max-width: 767px){
+	#grid[data-columns]::before {
+		content: '1 .column.size-1of1';
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 989px) {
+	#grid[data-columns]::before {
+		content: '2 .column.size-1of2';
+	}
+}
+@media screen and (min-width: 990px) {
+	#grid[data-columns]::before {
+		content: '3 .column.size-1of3';
+	}
+}
