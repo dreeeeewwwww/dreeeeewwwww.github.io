@@ -6,17 +6,26 @@ body{
   color:$body;
 }
 nav{
-  padding-top:30px;
-  padding-bottom:30px;
+  padding:60px 40px 60px 30px;
 
   ul{
     list-style:none;
     margin:0;
     padding:0;
+    text-align:left;
+
+    li.name{
+      color:$body;
+      margin-left:0 !important;
+
+      span.title{
+        color:$green;
+      }
+    }
 
     li{
       display:inline-block;
-      margin-right:30px;
+      margin-left:30px;
 
       a{
         color:$rose;
@@ -261,6 +270,28 @@ footer{
 .margin-bottom-30{margin-bottom:30px;}
 .margin-bottom-60{margin-bottom:60px;}
 /* MOBILE */
+@media screen and (max-width: 550px){
+    nav{
+      display:inline-block;
+      padding-bottom:60px;
+
+      ul{
+
+        li{
+          display:block;
+          width:50%;
+          text-align:center;
+          margin-left:auto;
+          margin-right:auto;
+
+        }
+        li.name{
+          width:100%;
+          margin-bottom:30px;
+        }
+      }
+    }
+}
 @media screen and (max-width: 767px){
 	#grid[data-columns]::before {
 		content: '1 .column.size-1of1';
