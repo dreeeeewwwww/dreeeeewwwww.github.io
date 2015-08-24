@@ -18,6 +18,17 @@ nav{
       color:$body;
       margin-left:0 !important;
 
+      a{
+        border:none !important;
+        opacity:1;
+        @include transition(all 0.2s ease-in-out);
+        &:hover, &:active{
+          border:none !important;
+          opacity:0.6;
+          color:inherit;
+        }
+      }
+
       span.title{
         color:$green;
       }
@@ -51,7 +62,7 @@ nav{
 a{
   @include transition(all 0.2s ease-in-out);
   text-decoration:none;
-  &:hover{
+  &:hover, &:link, &:visited, &:active{
     text-decoration:none;
   }
 }
@@ -235,6 +246,13 @@ footer{
     }
   }
 }
+.about-moi{
+  display:table-cell;
+  vertical-align:middle;
+  position:relative;
+  padding-top:30px;
+  padding-bottom:30px;
+}
 .about-linx{
   list-style:none;
   margin:30px 0 ;
@@ -256,8 +274,13 @@ footer{
     }
   }
 }
+.discogs-wrap{
+  padding-left:37px;
+  padding-right:37px;
+}
 .discogs-table{
   min-height:200px;
+  margin-bottom:30px;
 
   #discogs-collection{
 
