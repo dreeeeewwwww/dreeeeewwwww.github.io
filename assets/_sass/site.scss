@@ -130,8 +130,9 @@ footer{
   }
 }
 .modal-dialog{
-  padding:30px;
-  width:70%;
+  width:55%;
+  margin-left:auto;
+  margin-right:auto;
   @include transition(opacity 0.2s ease-in-out);
 }
 .modal-backdrop{
@@ -339,6 +340,16 @@ footer{
   }
   .collection-pill{
     text-align:center;
+  }
+  .modal{
+
+    button.close{
+    top:15px !important;
+    right:20px !important;
+    }
+  }
+  .carousel-control{
+    font-size:3.5em !important;
   }
 }
 @media screen and (max-width: 767px){
