@@ -57,7 +57,7 @@ $(document).ready(function(){
         $(content).appendTo("#discogs-collection");
       });
       $(".discogs-link").click(function() {
-        window.document.location = $(this).data("href");
+        window.open($(this).data("href"));
       });
     }
     else{
