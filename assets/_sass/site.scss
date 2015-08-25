@@ -317,26 +317,29 @@ footer{
 .margin-bottom-60{margin-bottom:60px;}
 /* MOBILE */
 @media screen and (max-width: 550px){
-    nav{
-      display:inline-block;
-      padding-bottom:30px;
+  nav{
+    display:inline-block;
+    padding-bottom:30px;
 
-      ul{
+    ul{
 
-        li{
-          display:block;
-          width:50%;
-          text-align:center;
-          margin-left:auto;
-          margin-right:auto;
+      li{
+        display:block;
+        width:50%;
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
 
-        }
-        li.name{
-          width:100%;
-          margin-bottom:30px;
-        }
+      }
+      li.name{
+        width:100%;
+        margin-bottom:30px;
       }
     }
+  }
+  .collection-pill{
+    text-align:center;
+  }
 }
 @media screen and (max-width: 767px){
 	#grid[data-columns]::before {
