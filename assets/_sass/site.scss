@@ -68,7 +68,7 @@ a{
 }
 footer{
   padding-top:30px;
-  padding-bottom:30px;
+  padding-bottom:60px;
 
   ul{
     list-style:none;
@@ -76,17 +76,19 @@ footer{
     padding:0;
 
     li{
-
     }
   }
 }
 
 /*WORK*/
+/*.no-fouc #grid{
+  display:none;
+}*/
 #grid[data-columns]::before{
   content: '3 .column.size-1of3';
 }
-
 #grid{
+
   .column { float: left; }
   .size-1of1 { width: 100%; }
   .size-1of2 { width: 50%; }
