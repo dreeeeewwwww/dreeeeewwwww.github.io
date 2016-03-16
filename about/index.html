@@ -48,12 +48,12 @@ layout: default
 $(document).ready(function(){
   $("#nav-about").addClass("active");
   $(".discogs-spinner").show();
-  jQuery.getJSON("http://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=&sort=added&sort_order=desc&per_page=1000", function(data) {
+  jQuery.getJSON("https://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=&sort=added&sort_order=desc&per_page=1000", function(data) {
     $(".discogs-spinner").hide();
     if (data.pagination.items > 1) {
       $.each(data.releases, function(i,release){
         content =
-        '<tr class="discogs-link" data-href="http://www.discogs.com/release/'+release.basic_information.id+'"><td>'+release.basic_information.artists[0].name+'</td><td>'+release.basic_information.title+'</td><td class="hidden-xs">'+release.basic_information.labels[0].name+'</td><td class="text-center hidden-xs">'+release.basic_information.formats[0].descriptions[0]+'</td><td class="text-center">'+release.basic_information.year+'</td></tr>';
+        '<tr class="discogs-link" data-href="https://www.discogs.com/release/'+release.basic_information.id+'"><td>'+release.basic_information.artists[0].name+'</td><td>'+release.basic_information.title+'</td><td class="hidden-xs">'+release.basic_information.labels[0].name+'</td><td class="text-center hidden-xs">'+release.basic_information.formats[0].descriptions[0]+'</td><td class="text-center">'+release.basic_information.year+'</td></tr>';
         $(content).appendTo("#discogs-collection");
       });
       $(".discogs-link").click(function() {
