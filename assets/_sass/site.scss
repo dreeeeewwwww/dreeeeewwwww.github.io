@@ -1,6 +1,8 @@
 body{
   font-family:'Lato', 'Helvetica Neue', Helvetica, arial, verdana, sans-serif;
   color:$green;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 .body-copy{
   color:$body;
@@ -374,6 +376,7 @@ footer{
   -webkit-animation-delay: 0.5s;
   -moz-animation-delay: 0.5s;
   animation-delay: 0.5s;
+  -webkit-transform: translateZ(0);
 }
 /* MOBILE */
 @media screen and (max-width: 767px){
