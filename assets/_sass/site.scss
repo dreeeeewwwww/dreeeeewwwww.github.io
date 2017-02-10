@@ -194,8 +194,8 @@ footer{
 .carousel-inner{
   color:$body;
   font-weight:400;
-  text-align:center;
-  font-size:2em;
+  text-align:left;
+  font-size:1em;
 
   .item{
 
@@ -236,6 +236,32 @@ footer{
   right:0;
   &:hover{
     background-image:none !important;
+  }
+}
+.attribution{
+  display:block;
+  color:$grey-c1;
+  margin-top:3px;
+
+  a{
+
+    &:hover, &:link, &:visited, &:active{
+      color:$grey-c1;
+      border-bottom:1px solid $grey-c1;
+      text-decoration:none;
+    }
+  }
+}
+.attribution-modal{
+  font-size:1em !important;
+  margin-top:15px;
+
+  a{
+    &:hover, &:link, &:visited, &:active{
+      color:$body !important;
+      border-bottom:1px solid $body;
+      text-decoration:none;
+    }
   }
 }
 /*ABOUT*/
