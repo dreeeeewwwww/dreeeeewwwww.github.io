@@ -255,11 +255,17 @@ footer{
 .attribution-modal{
   font-size:1em !important;
   margin-top:15px;
+  color:$white;
+  text-align:left !important;
+
+  .video-by{
+    display:block;
+  }
 
   a{
     &:hover, &:link, &:visited, &:active{
-      color:$body !important;
-      border-bottom:1px solid $body;
+      color:$white !important;
+      border-bottom:1px solid $white;
       text-decoration:none;
     }
   }
