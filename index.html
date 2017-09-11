@@ -4,6 +4,27 @@ layout: default
 ---
 <div class="container fade-in">
   <div class="row">
+    <div class="col-12">
+      <div class="card-columns">
+        {% for post in site.posts %}
+          <div class="card w-90">
+            <img class="card-img-top" src="{{ post.img }}" alt="card img" />
+            <div class="card-body">
+              <p class="card-text">
+                {{ post.title }}<br />
+                {{ post.excerpt }}
+                {% if post.attribution != null %}
+                  <small class="attribution">{{ post.attribution }}</small>
+                {% endif %}
+              </p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!--
+  <div class="row">
     <div id="grid" data-columns>
       {% for post in site.posts %}
         <div class="portfolio-item">
@@ -19,64 +40,7 @@ layout: default
       {% endfor %}
     </div>
   </div>
+  -->
 </div>
-<div class="modal fade" id="portfolio-carousel" tabindex="-1" role="dialog" aria-labelledby="portfolio-carousel">
-  <div class="modal-dialog" role="document">
-    <div id="work" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false" data-keyboard="true">
-      <div class="carousel-inner" role="listbox">
-        {% for post in site.posts %}
-          <div class="item">
-            {% if post.video == true %}
-              {{ post.content }}
-            {% else %}
-              <img src="{{ site.url }}{{ post.img }}" class="img-responsive open-carousel" />
-              <p>&nbsp;</p>
-              {{ post.content }}
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-eject"></i></span></button>
-  <a class="left carousel-control" href="#work" role="button" data-slide="prev" title="Previous">
-      <i class="fa fa-caret-left" aria-hidden="true"></i>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#work" role="button" data-slide="next" title="Next">
-    <i class="fa fa-caret-right" aria-hidden="true"></i>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-<script type="text/javascript">
-  $("#nav-work").addClass("active");
-  $(".carousel-inner .item").first().addClass("active");
-  $(".open-carousel").on("click", function() {
-    $('#portfolio-carousel').modal('show');
-  });
-  function goToSlide(number) {
-   $("#work").carousel(number);
-  }
-  $(document).keydown(function(e) {
-  	if (e.keyCode === 37) {
-  	   // Previous
-  	   $(".carousel-control.left").click();
-  	   return false;
-  	}
-  	if (e.keyCode === 39) {
-  	   // Next
-  	   $(".carousel-control.right").click();
-  	   return false;
-  	}
-  });
-  var video = $("#53KOw_gbS0w").attr("src");
-  $('#portfolio-carousel').on('hidden.bs.modal', function () {
-    $("#53KOw_gbS0w").attr("src","");
-    $("#53KOw_gbS0w").attr("src",video);
-  });
-  $('#portfolio-carousel').on('slide.bs.carousel', function () {
-    $("#53KOw_gbS0w").attr("src","");
-    $("#53KOw_gbS0w").attr("src",video);
-  });
-</script>
+
 <script type="text/javascript" src="assets/javascript/salvattore.min.js"></script>
