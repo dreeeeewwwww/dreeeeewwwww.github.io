@@ -7,18 +7,20 @@ layout: default
     <div class="col-12">
       <div class="card-columns">
         {% for post in site.posts %}
-          <div class="card w-90">
-            <img class="card-img-top" src="{{ post.img }}" alt="card img" />
-            <div class="card-body">
-              <p class="card-text">
-                {{ post.title }}<br />
-                {{ post.excerpt }}
-                {% if post.attribution != null %}
-                  <small class="attribution">{{ post.attribution }}</small>
-                {% endif %}
-              </p>
+          <a href="{{ post.permalink }}">
+            <div class="card w-90">
+              <img class="card-img-top" src="{{ post.img }}" alt="card img" />
+              <div class="card-body">
+                <p class="card-text">
+                  {{ post.title }}<br />
+                  {{ post.excerpt }}
+                  {% if post.attribution != null %}
+                    <small class="attribution">{{ post.attribution }}</small>
+                  {% endif %}
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         {% endfor %}
       </div>
     </div>
