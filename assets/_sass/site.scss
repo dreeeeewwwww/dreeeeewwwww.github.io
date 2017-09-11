@@ -370,3 +370,15 @@ footer{
 		content: '3 .column.size-1of3';
 	}
 }
+// Bootstrap override
+.card-columns {
+  @include media-breakpoint-only(md) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
