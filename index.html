@@ -12,6 +12,9 @@ layout: default
               <img class="card-img-top" src="{{ post.img }}" alt="card img" />
               <div class="card-body">
                 <p class="card-text">
+                  {% if post.org != null %}
+                    <small class="attribution">{{ post.org }}</small>
+                  {% endif %}
                   {{ post.title }}<br />
                   {{ post.excerpt }}
                   {% if post.attribution != null %}
