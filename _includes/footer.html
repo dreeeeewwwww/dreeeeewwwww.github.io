@@ -12,7 +12,10 @@
 
       </div>
       <div class="col-md-4 text-right">
-        Work About
+        <small>
+          <a id="nav-about" {% if page.title == 'About' %}class="active"{% endif %} href="/about/">about</a>
+          <a id="nav-work" {% if page.title == 'Work' %}class="active"{% endif %} href="/">work</a>
+        </small>
       </div>
     </div>
   </div>
