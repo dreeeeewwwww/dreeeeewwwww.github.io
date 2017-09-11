@@ -1,9 +1,12 @@
 body{
-  font-family:'Graphik-Regular', 'Lato', 'Helvetica Neue', Helvetica, arial, verdana, sans-serif;
+  @include graphik-regular();
   color:$green;
 }
 .body-copy{
   color:$body;
+}
+strong{
+  @include graphik-semibold();
 }
 nav{
   padding:60px 40px 60px 30px;
@@ -17,6 +20,7 @@ nav{
     li.name{
       color:$body;
       margin-left:0 !important;
+
 
       a{
         border:none !important;
