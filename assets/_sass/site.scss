@@ -10,7 +10,8 @@ strong{
 }
 nav{
   padding:60px 40px 60px 30px;
-
+  margin-bottom:60px;
+  font-size:2em;
   ul{
     list-style:none;
     margin:0;
@@ -32,23 +33,22 @@ nav{
           color:inherit;
         }
       }
-
-      span.title{
-        color:$green;
-        @include graphik-regular();
-      }
     }
-
+    span.title{
+      color:$green;
+      @include graphik-regular();
+      font-size:0.5em;
+      display:block;
+    }
     li{
+      @include graphik-semibold();
       display:inline-block;
       margin-left:30px;
-
       a{
         color:$rose;
         text-decoration:none;
         border-bottom:3px solid transparent;
         padding-bottom:5px;
-
         &:hover{
           border-bottom:3px solid $green;
           color:$green;

@@ -1,11 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-12">
       <nav>
         <ul>
-          <li class="name pull-left"><a href="/"><span class="title">Designer &amp; Front-End Engineer</span><br />Drew Gardner</a></li>
-          <li class="pull-right"><a id="nav-about" href="/about/"><br />About</a></li>
-          <li class="pull-right"><a id="nav-work" href="/"><br />Work</a></li>
+          <li class="name pull-left">
+            <span class="title">design &amp; front-end</span>
+            <a href="/">Drew Gardner</a>
+          </li>
+          <li class="pull-right">
+            <span class="title">&nbsp;</span>
+            <a id="nav-about" {% if page.title == 'About' %}class="active"{% endif %} href="/about/">about</a></li>
+          <li class="pull-right">
+            <span class="title">&nbsp;</span>
+            <a id="nav-work" {% if page.title == 'Work' %}class="active"{% endif %} href="/">work</a>
+          </li>
         </ul>
       </nav>
     </div>
