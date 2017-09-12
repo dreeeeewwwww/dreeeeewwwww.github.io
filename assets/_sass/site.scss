@@ -1,6 +1,7 @@
 body{
   @include graphik-regular();
   color:$body;
+  font-size:18px;
 }
 .body-copy{
   color:$body;
@@ -12,6 +13,7 @@ nav{
   padding:60px 40px 60px 30px;
   margin-bottom:60px;
   font-size:2em;
+  line-height:1em;
   ul{
     list-style:none;
     margin:0;
@@ -36,8 +38,7 @@ nav{
     }
     span.title{
       color:$green;
-      @include graphik-regular();
-      font-size:0.5em;
+
       display:block;
     }
     li{
@@ -371,7 +372,7 @@ footer{
 	}
 }
 // Bootstrap override
-.card-columns {
+/*.card-columns {
   @include media-breakpoint-only(md) {
     column-count: 3;
   }
@@ -381,4 +382,4 @@ footer{
   @include media-breakpoint-only(xl) {
     column-count: 5;
   }
-}
+}*/
