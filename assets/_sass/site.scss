@@ -3,8 +3,10 @@ body{
   color:$body;
   font-size:18px;
 }
-.body-copy{
-  color:$body;
+h1{
+  font-size:2em;
+  line-height:1em;
+  @include graphik-semibold();
 }
 strong{
   @include graphik-semibold();
@@ -50,16 +52,6 @@ strong{
     }
   }
 }
-.www-stroke{
-  border:1px solid $grey-e8;
-}
-a{
-  @include transition(all 0.2s ease-in-out);
-  text-decoration:none;
-  &:hover, &:link, &:visited, &:active{
-    text-decoration:none;
-  }
-}
 footer{
 
   #footer-work, #footer-about{
@@ -81,6 +73,13 @@ footer{
       color:$body;
       border-color:$green;
     }
+  }
+}
+a{
+  @include transition(all 0.2s ease-in-out);
+  text-decoration:none;
+  &:hover, &:link, &:visited, &:active{
+    text-decoration:none;
   }
 }
 
