@@ -1,21 +1,16 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <nav>
-        <ul>
-          <li class="name pull-left">
-            <a href="/">Drew Gardner</a><br />
-            <span class="title">Design &amp;<br />Front-End</span>
-          </li>
-          <li class="pull-right">
-            <br /><br />
-            <a id="nav-about" {% if page.title == 'About' %}class="active"{% endif %} href="/about/">about</a></li>
-          <li class="pull-right">
-            <br /><br />
-            <a id="nav-work" {% if page.title == 'Work' %}class="active"{% endif %} href="/">work</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+  <div class="row my-4 pb-4 foo">
+
+
+        <div class="col-8 name">
+          <a href="/">Drew Gardner</a><br />
+          <span class="title">Design &amp;<br />Front-End</span>
+        </div>
+        <div class="col-4 nav-linx">
+          <a id="nav-work" {% if page.title == 'Work' %}class="active"{% endif %} href="/">work</a>
+          <a id="nav-about" {% if page.title == 'About' %}class="active"{% endif %} href="/about/">about</a></li>
+        </div>
+
+
   </div>
 </div>

@@ -9,56 +9,48 @@ body{
 strong{
   @include graphik-semibold();
 }
-nav{
-  padding:60px 40px 60px 30px;
-  margin-bottom:60px;
+.foo{
+  display:block;
   font-size:2em;
   line-height:1em;
-  ul{
-    list-style:none;
-    margin:0;
-    padding:0;
-    text-align:left;
+  @include graphik-semibold();
 
-    li.name{
+  .name{
+    color:$body;
+    margin-left:0 !important;
+
+    a{
       color:$body;
-      margin-left:0 !important;
-      @include graphik-semibold();
-
-      a{
+      border:none !important;
+      opacity:1;
+      @include transition(all 0.2s ease-in-out);
+      &:hover, &:active{
         border:none !important;
-        opacity:1;
-        @include transition(all 0.2s ease-in-out);
-        &:hover, &:active{
-          border:none !important;
-          opacity:0.6;
-          color:inherit;
-        }
+        opacity:0.6;
+        color:inherit;
       }
     }
-    span.title{
-      color:$green;
-
-      display:block;
-    }
-    li{
-      @include graphik-semibold();
-      display:inline-block;
-      margin-left:30px;
-      a{
-        color:$rose;
-        text-decoration:none;
-        border-bottom:3px solid transparent;
-        padding-bottom:5px;
-        &:hover{
-          border-bottom:3px solid $green;
-          color:$green;
-        }
-      }
-      a.active{
-        color:$rose;
+  }
+  span.title{
+    color:$green;
+  }
+  .nav-linx{
+    @include graphik-semibold();
+    display:inline-block;
+    margin-left:30px;
+    a{
+      color:$rose;
+      text-decoration:none;
+      border-bottom:3px solid transparent;
+      padding-bottom:5px;
+      &:hover{
         border-bottom:3px solid $green;
+        color:$green;
       }
+    }
+    a.active{
+      color:$rose;
+      border-bottom:3px solid $green;
     }
   }
 }
@@ -86,38 +78,6 @@ footer{
   }
 }
 
-/*WORK*/
-/*.no-fouc #grid{
-  display:none;
-}*/
-#grid[data-columns]::before{
-  content: '3 .column.size-1of3';
-}
-#grid{
-
-  .column { float: left; }
-  .size-1of1 { width: 100%; }
-  .size-1of2 { width: 50%; }
-  .size-1of3 { width: 33.333%; }
-  .portfolio-item{
-    padding:30px;
-    @include transition(all 0.5s ease-in-out);
-
-    img{
-      max-width:100%;
-      @include box-shadow(none);
-      margin-bottom:15px;
-      border:1px solid $grey-two;
-      border-bottom:1px solid $grey;
-      @include transition(all 0.5s ease-in-out);
-      &:hover{
-        @include box-shadow(-5px 5px 0  $green);
-        border:1px solid $green;
-        cursor:pointer;
-      }
-    }
-  }
-}
 .modal{
 
   button.close{
@@ -243,9 +203,6 @@ footer{
     }
   }
 }
-.about-moi{
-  padding-top:30px;
-}
 .about-linx{
   list-style:none;
   margin:30px 0 ;
@@ -256,13 +213,13 @@ footer{
     margin:0 10px 0 0;
 
     a{
-      border-bottom:1px solid $green;
-      color:$green;
+      border-bottom:1px solid $body;
+      color:$body;
       padding-bottom:3px;
       @include transition(all 0.2s ease-in-out);
       &:hover{
-        border-color:$body;
-        color:$body;
+        border-color:$green;
+        color:$green;
       }
     }
   }
