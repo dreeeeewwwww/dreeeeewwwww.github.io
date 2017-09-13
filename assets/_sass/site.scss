@@ -43,12 +43,15 @@ strong{
       padding-bottom:5px;
       &:hover{
         border-bottom:3px solid $green;
-        color:$green;
+        color:$body;
       }
     }
     a.active{
-      color:$body;
+      color:$green;
       border-bottom:3px solid $green;
+    }
+    a.active h1{
+      color:$green;
     }
   }
 }
@@ -61,12 +64,12 @@ footer{
     padding-bottom:4px;
 
     &:hover{
-      color:$green;
+      color:$body;
       border-color:$green;
     }
   }
   #footer-work.active, #footer-about.active{
-    color:$body;
+    color:$green;
     border-color:$green;
 
     &:hover{
@@ -183,14 +186,12 @@ a{
   }
 }
 .discogs-wrap{
-  padding-left:37px;
-  padding-right:37px;
   color:$green;
 }
 .discogs-table{
   min-height:200px;
   margin-bottom:30px;
-  font-size:0.85em;
+  font-size:0.8em;
   letter-spacing:0.04em;
 
   #discogs-collection{
