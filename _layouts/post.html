@@ -3,7 +3,26 @@
   {% include head.html %}
   <body>
     {% include nav.html %}
-    {{ content }}
+    <div class="container">
+      <div class="row mb-4 pb-4">
+        <div class="col-6">
+          {% if page.org != null %}
+            {{ page.org }}
+          {% endif %}
+          {{ page.title }}<br />
+          {{ page.excerpt }}
+          {% if page.attribution != null %}
+            <small class="attribution">{{ page.attribution }}</small>
+          {% endif %}
+        </div>
+        <div class="col-6">
+          <img class="img-fluid" src="{{ page.img }}" />
+        </div>
+      </div>
+      {{ content }}
+      {{ paginator.previous_page }}
+      {{ paginator.next_page }}
+    </div>
     {% include footer.html %}
   </body>
 </html>

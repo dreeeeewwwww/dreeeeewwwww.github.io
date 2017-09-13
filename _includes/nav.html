@@ -5,9 +5,17 @@
       <span class="text-green">Design &amp;<br />Front-End</span>
     </div>
     <div class="col-12 col-sm-6 col-md-6 col-lg-4 my-4 pb-3 pb-sm-0 my-sm-0 text-sm-right align-self-end nav-linx">
-      <a id="nav-work" {% if page.title == 'Work' %}class="active"{% endif %} href="/">work</a>
+      {% if page.title == 'Work' %}
+        <a id="nav-work" class="active" href="/"><h1>work</h1></a>
+      {% else %}
+        <a id="nav-work"href="/">work</a>
+      {% endif %}
       &nbsp;&nbsp;
-      <a id="nav-about" {% if page.title == 'About' %}class="active"{% endif %} href="/about/">about</a></li>
+      {% if page.title == 'About' %}
+        <a id="nav-about" class="active" href="/about/"><h1>about</h1></a>
+      {% else %}
+        <a id="nav-about" href="/about/">about</a>
+      {% endif %}
     </div>
   </div>
 </div>
