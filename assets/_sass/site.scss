@@ -334,7 +334,10 @@ footer{
 		content: '3 .column.size-1of3';
 	}
 }
-// Bootstrap override
+// Bootstrap override & extension
+.border-grey{
+  border-color:$grey-e8;
+}
 /*.card-columns {
   @include media-breakpoint-only(md) {
     column-count: 3;

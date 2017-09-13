@@ -8,8 +8,8 @@ layout: default
       <div class="card-columns">
         {% for post in site.posts %}
           <a href="{{ post.permalink }}">
-            <div class="card">
-              <img class="card-img-top" src="{{ post.img }}" alt="card img" />
+            <div class="card border-0">
+              <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="card img" />
               <div class="card-body">
                 <p class="card-text">
                   {% if post.org != null %}
