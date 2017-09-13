@@ -1,21 +1,17 @@
 <footer>
   <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <small>
+    <div class="row mt-2 mb-2 py-4 my-sm-4 py-sm-4">
+      <div class="col-12 col-sm-6 col-md-8 order-2 order-sm-1">
           &copy; 2007 - {{ 'now' | date: "%Y" }}<br />
-          build: 2.1<br />
-          fonts: graphik | commercial type
+        <small class="text-grey">
+          Version: 4.1<br />
+          Font: Graphik | Commercial Type
         </small>
       </div>
-      <div class="col-md-4">
-
-      </div>
-      <div class="col-md-4 text-right">
-        <small>
-          <a id="nav-about" {% if page.title == 'About' %}class="active"{% endif %} href="/about/">about</a>
-          <a id="nav-work" {% if page.title == 'Work' %}class="active"{% endif %} href="/">work</a>
-        </small>
+      <div class="col-12 col-sm-6 col-md-4 order-1 order-sm-2 mb-4 pb-2 pb-sm-0 mb-sm-0 text-sm-right">
+        <a id="footer-work" {% if page.title == 'Work' %}class="active"{% endif %} href="/">Work</a>
+        &nbsp;&nbsp;
+        <a id="footer-about" {% if page.title == 'About' %}class="active"{% endif %} href="/about/">About</a>
       </div>
     </div>
   </div>

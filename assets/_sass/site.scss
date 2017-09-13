@@ -9,8 +9,7 @@ body{
 strong{
   @include graphik-semibold();
 }
-.foo{
-  display:block;
+.navigation{
   font-size:2em;
   line-height:1em;
   @include graphik-semibold();
@@ -31,15 +30,9 @@ strong{
       }
     }
   }
-  span.title{
-    color:$green;
-  }
   .nav-linx{
-    @include graphik-semibold();
-    display:inline-block;
-    margin-left:30px;
     a{
-      color:$rose;
+      color:$body;
       text-decoration:none;
       border-bottom:3px solid transparent;
       padding-bottom:5px;
@@ -49,13 +42,13 @@ strong{
       }
     }
     a.active{
-      color:$rose;
+      color:$body;
       border-bottom:3px solid $green;
     }
   }
 }
 .www-stroke{
-  border:1px solid $grey-two;
+  border:1px solid $grey-e8;
 }
 a{
   @include transition(all 0.2s ease-in-out);
@@ -65,15 +58,25 @@ a{
   }
 }
 footer{
-  padding-top:30px;
-  padding-bottom:60px;
 
-  ul{
-    list-style:none;
-    margin:0;
-    padding:0;
+  #footer-work, #footer-about{
+    color:$body;
+    @include graphik-semibold();
+    border-bottom:2px solid transparent;
+    padding-bottom:4px;
 
-    li{
+    &:hover{
+      color:$green;
+      border-color:$green;
+    }
+  }
+  #footer-work.active, #footer-about.active{
+    color:$body;
+    border-color:$green;
+
+    &:hover{
+      color:$body;
+      border-color:$green;
     }
   }
 }
@@ -140,7 +143,7 @@ footer{
   opacity:0.7;
   @include transition(all 0.2s ease-in-out);
   &:hover, &:active, &:link, &visited{
-    color:$rose;
+    color:$body;
   }
   &:hover{
     opacity:1;
@@ -199,7 +202,7 @@ footer{
   a{
     color:$green;
     &:hover{
-      color:$rose;
+      color:$body;
     }
   }
 }
@@ -250,7 +253,7 @@ footer{
       }
     }
     .discogs-error{
-      color:$rose !important;
+      color:$body !important;
     }
     tr{
       td{
@@ -259,7 +262,7 @@ footer{
       @include transition(all 0.2s ease-in-out);
       &:hover{
         cursor: pointer;
-        color:$rose;
+        color:$body;
         background:$offwhite;
       }
     }
@@ -279,6 +282,9 @@ footer{
 .margin-bottom-15{margin-bottom:15px;}
 .margin-bottom-30{margin-bottom:30px;}
 .margin-bottom-60{margin-bottom:60px;}
+// Text helpers
+.text-green{color:$green !important;}
+.text-grey{color:$grey-c1 !important;}
 /* MOBILE */
 @media screen and (max-width: 550px){
   nav{

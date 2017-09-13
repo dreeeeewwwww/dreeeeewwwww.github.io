@@ -1,16 +1,13 @@
 <div class="container">
-  <div class="row my-4 pb-4 foo">
-
-
-        <div class="col-8 name">
-          <a href="/">Drew Gardner</a><br />
-          <span class="title">Design &amp;<br />Front-End</span>
-        </div>
-        <div class="col-4 nav-linx">
-          <a id="nav-work" {% if page.title == 'Work' %}class="active"{% endif %} href="/">work</a>
-          <a id="nav-about" {% if page.title == 'About' %}class="active"{% endif %} href="/about/">about</a></li>
-        </div>
-
-
+  <div class="row my-3 my-sm-4 py-sm-4 navigation">
+    <div class="col-12 col-sm-6 col-md-6 col-lg-8 name">
+      <a href="/">Drew Gardner</a><br />
+      <span class="text-green">Design &amp;<br />Front-End</span>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 col-lg-4 my-4 pb-3 pb-sm-0 my-sm-0 text-sm-right align-self-end nav-linx">
+      <a id="nav-work" {% if page.title == 'Work' %}class="active"{% endif %} href="/">work</a>
+      &nbsp;&nbsp;
+      <a id="nav-about" {% if page.title == 'About' %}class="active"{% endif %} href="/about/">about</a></li>
+    </div>
   </div>
 </div>
