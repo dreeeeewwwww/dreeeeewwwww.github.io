@@ -208,6 +208,14 @@ a{
     }
   }
 }
+// WORK
+a.prev, a.next{
+  color:$grey-c1;
+  padding-bottom:4px;
+  &:hover{
+    color:$green;
+  }
+}
 /* CSS3 FADEIN */
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
