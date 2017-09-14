@@ -154,34 +154,18 @@ a{
   }
 }
 /*ABOUT*/
-.collection-pill{
-  padding:7px 8px;
-
-  a{
-    color:$green;
-    &:hover{
-      color:$body;
-    }
-  }
+.moi{
+  margin-top:200px;
 }
 .about-linx{
-  list-style:none;
-  margin:30px 0 ;
-  padding:0;
-
-  li{
-    display:inline;
-    margin:0 10px 0 0;
-
-    a{
-      border-bottom:1px solid $body;
-      color:$body;
-      padding-bottom:3px;
-      @include transition(all 0.2s ease-in-out);
-      &:hover{
-        border-color:$green;
-        color:$green;
-      }
+  a{
+    border-bottom:1px solid $body;
+    color:$body;
+    padding-bottom:3px;
+    @include transition(all 0.2s ease-in-out);
+    &:hover{
+      border-color:$green;
+      color:$green;
     }
   }
 }
@@ -275,20 +259,25 @@ a{
     font-size:3.5em !important;
   }
 }
+@media screen and (max-width: 576px){
+	.no-gutters-xs{
+    padding:0;
+  }
+  .moi{
+    @include border-radius(0 !important);
+    width:100%;
+  }
+}
 @media screen and (max-width: 767px){
-	#grid[data-columns]::before {
-		content: '1 .column.size-1of1';
-	}
+	.moi{
+    margin-top:0;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 989px) {
-	#grid[data-columns]::before {
-		content: '2 .column.size-1of2';
-	}
+
 }
 @media screen and (min-width: 990px) {
-	#grid[data-columns]::before {
-		content: '3 .column.size-1of3';
-	}
+
 }
 // Bootstrap override & extension
 .border-grey{
