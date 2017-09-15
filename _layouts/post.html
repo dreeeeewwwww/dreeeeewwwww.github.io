@@ -6,7 +6,13 @@
     <div class="container">
       <div class="row my-4 pb-4">
         <div class="col-8 ">
-          <img class="img-fluid {% if page.img-border-show == true %}border border-grey{% endif %}" src="{{ page.img }}" />
+          {% if page.video != null %}
+            <div class="embed-responsive embed-responsive-16by9 mb-4" id="play-matters">
+              <iframe id="{{ page.video }}" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/{{ page.video }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+          {% else %}
+            <img class="img-fluid {% if page.img-border-show == true %}border border-grey{% endif %}" src="{{ page.img }}" />
+          {% endif %}
           {{ content }}
         </div>
         <div class="col-4">
@@ -28,7 +34,7 @@
           {{ page.tech }}<br />
           {{ page.excerpt }}
           {% if page.attribution != null %}
-            <small class="attribution">{{ page.attribution }}</small>
+            <span class="d-block attribution text-grey">{{ page.attribution }}</span>
           {% endif %}
         </div>
       </div>

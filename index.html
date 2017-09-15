@@ -8,11 +8,13 @@ layout: default
     <div class="col-12">
       <div class="card-columns">
         {% for post in site.posts %}
-          <a href="{{ post.permalink }}">
-            <div class="card border-0 mb-4">
+          <div class="card border-0 mb-4">
+            <a href="{{ post.permalink }}">
               <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title | post.org}}" />
-              <div class="card-body">
-                <p class="card-text">
+            </a>
+            <div class="card-body">
+              <p class="card-text">
+                <a href="{{ post.permalink }}">
                   {% if post.org != null %}
                     <small class="d-block mb-1 text-grey">{{ post.org }}</small>
                   {% endif %}
@@ -20,13 +22,10 @@ layout: default
                   {% if post.tech != null %}
                     <small class="d-block mt-1">{{ post.tech }}</small>
                   {% endif %}
-                  {% if post.attribution != null %}
-                    <small class="attribution">{{ post.attribution }}</small>
-                  {% endif %}
-                </p>
-              </div>
+                </a>
+              </p>
             </div>
-          </a>
+          </div>
         {% endfor %}
       </div>
     </div>

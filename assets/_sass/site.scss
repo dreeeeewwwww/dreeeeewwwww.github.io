@@ -121,36 +121,32 @@ a{
     @include transform(none !important);
   }
 }
+// INDEX
+p{
+  a{
+    color:$body;
+    &:hover, &:active{
+      color:$green;
+    }
+  }
+
+}
 .attribution{
   a{
-    &:hover, &:link, &:visited, &:active{
-      color:$grey-c1;
-      border-bottom:1px solid $grey-c1;
+    color:$grey-c1;
+    border-bottom:1px solid $grey-c1;
+    text-decoration:none;
+    padding-bottom:3px;
+    &:hover, &:active{
+      color:$green;
+      border-color: $green;
       text-decoration:none;
     }
   }
 }
-.attribution-modal{
-  font-size:1em !important;
-  margin-top:15px;
-  color:$white;
-  text-align:left !important;
-
-  .video-by{
-    display:block;
-  }
-
-  a{
-    &:hover, &:link, &:visited, &:active{
-      color:$white !important;
-      border-bottom:1px solid $white;
-      text-decoration:none;
-    }
-  }
-}
-/*ABOUT*/
+// ABOUT
 .moi{
-
+  margin-top:100px;
 }
 .about-linx{
   a{
@@ -279,8 +275,10 @@ a.prev, a.next{
 @media screen and (min-width: 768px) and (max-width: 989px) {
 
 }
-@media screen and (min-width: 990px) {
-
+@media screen and (max-width: 990px) {
+ .moi{
+   margin-top:0;
+ }
 }
 // Bootstrap override & extension
 .border-grey{
