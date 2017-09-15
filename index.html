@@ -9,15 +9,17 @@ layout: default
       <div class="card-columns">
         {% for post in site.posts %}
           <a href="{{ post.permalink }}">
-            <div class="card border-0">
-              <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="card img" />
+            <div class="card border-0 mb-4">
+              <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title | post.org}}" />
               <div class="card-body">
                 <p class="card-text">
                   {% if post.org != null %}
-                    <small class="attribution">{{ post.org }}</small>
+                    <small class="d-block mb-1 text-grey">{{ post.org }}</small>
                   {% endif %}
-                  {{ post.title }}<br />
-                  <small>{{ post.excerpt }}</small>
+                  {{ post.title }}
+                  {% if post.tech != null %}
+                    <small class="d-block mt-1">{{ post.tech }}</small>
+                  {% endif %}
                   {% if post.attribution != null %}
                     <small class="attribution">{{ post.attribution }}</small>
                   {% endif %}

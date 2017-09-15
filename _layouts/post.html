@@ -5,17 +5,12 @@
     {% include nav.html %}
     <div class="container">
       <div class="row my-4 pb-4">
+        <div class="col-8 ">
+          <img class="img-fluid {% if page.img-border-show == true %}border border-grey{% endif %}" src="{{ page.img }}" />
+          {{ content }}
+        </div>
         <div class="col-4">
-          {% if page.org != null %}
-            {{ page.org }}<br />
-          {% endif %}
-          <h1>{{ page.title }}</h1>
-
-          {{ page.excerpt }}
-          {% if page.attribution != null %}
-            <small class="attribution">{{ page.attribution }}</small>
-          {% endif %}
-          <div class="d-block my-4">
+          <div class="d-block mb-4">
             {% if page.next.url %}
               <a class="next" href="{{page.next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
             {% endif %}
@@ -26,14 +21,15 @@
               <a class="prev" href="{{page.previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
             {% endif %}
           </div>
-        </div>
-        <div class="col-8">
-          <img class="img-fluid" src="{{ page.img }}" />
-        </div>
-      </div>
-      <div class="row justify-content-end">
-        <div class="col-8 ">
-          {{ content }}
+          {% if page.org != null %}
+            <span class="d-block mb-2">{{ page.org }}</span>
+          {% endif %}
+          <h1>{{ page.title }}</h1>
+          {{ page.tech }}<br />
+          {{ page.excerpt }}
+          {% if page.attribution != null %}
+            <small class="attribution">{{ page.attribution }}</small>
+          {% endif %}
         </div>
       </div>
     </div>
