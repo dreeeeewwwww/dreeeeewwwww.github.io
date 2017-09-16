@@ -1,5 +1,16 @@
 <!DOCTYPE HTML>
 <html>
+  {% if page.previous %}
+    {% assign previous = page.previous %}
+  {% else %}
+    {% assign previous = site.posts[0] %}
+  {% endif %}
+  {% if page.next %}
+    {% assign next = page.next %}
+  {% else %}
+    {% assign last lastPostIndex = site.posts | size | minus: 1 %}
+    {% assign next = site.posts[lastPostIndex] %}
+  {% endif %}
   {% include head.html %}
   <body>
     {% include nav.html %}
@@ -7,16 +18,10 @@
       <div class="row my-4 pb-0 pb-lg-4">
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
           <div class="d-block d-lg-none mb-4">
-            {% if page.next.url %}
-              <a class="next d-inline-block pull-left" href="{{page.next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
-            {% endif %}
-            {% if page.previous.url and page.next.url %}
-              &nbsp;&nbsp;
-            {% endif %}
-            {% if page.previous.url %}
-              <a class="prev d-inline-block pull-right" href="{{page.previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-            {% endif %}
+            <a class="next d-inline-block pull-left" href="{{next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
+            <a class="prev d-inline-block pull-right" href="{{previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
           </div>
+          <div class="clearfix d-lg-none">&nbsp;</div>
           {% if page.video != null %}
             <div class="embed-responsive embed-responsive-16by9 mb-4" id="play-matters">
               <iframe id="{{ page.video }}" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/{{ page.video }}" frameborder="0" allowfullscreen></iframe>
@@ -29,15 +34,10 @@
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-4 my-4 pt-4 pt-lg-0 my-lg-0">
           <div class="d-none d-lg-block mb-4">
-            {% if page.next.url %}
-              <a class="next" href="{{page.next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
-            {% endif %}
-            {% if page.previous.url and page.next.url %}
-              &nbsp;&nbsp;
-            {% endif %}
-            {% if page.previous.url %}
-              <a class="prev" href="{{page.previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-            {% endif %}
+            <a class="next" href="{{next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
+            &nbsp;&nbsp;
+            <a class="prev" href="{{previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+            
           </div>
           {% if page.org != null %}
             <span class="d-block mb-2">{{ page.org }}</span>
@@ -49,15 +49,8 @@
             <span class="d-block attribution text-grey">{{ page.attribution }}</span>
           {% endif %}
           <div class="d-block d-lg-none mt-4 pt-4">
-            {% if page.next.url %}
-              <a class="next d-inline-block pull-left" href="{{page.next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
-            {% endif %}
-            {% if page.previous.url and page.next.url %}
-              &nbsp;&nbsp;
-            {% endif %}
-            {% if page.previous.url %}
-              <a class="prev d-inline-block pull-right" href="{{page.previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-            {% endif %}
+            <a class="next d-inline-block pull-left" href="{{next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
+            <a class="prev d-inline-block pull-right" href="{{previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
