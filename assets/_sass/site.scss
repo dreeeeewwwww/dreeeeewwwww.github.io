@@ -223,7 +223,18 @@ a.prev, a.next{
 .margin-bottom-60{margin-bottom:60px;}
 // Text helpers
 .text-green{color:$green !important;}
-.text-grey{color:$grey-c1 !important;}
+.text-grey{
+  color:$grey-c1 !important;
+  a{
+    color:$grey-c1;
+    border-bottom:1px solid transparent;
+    text-decoration:none;
+    &:hover{
+      color:$green;
+      border-color:$green;
+    }
+  }
+}
 /* MOBILE */
 @media screen and (max-width: 550px){
   nav{
