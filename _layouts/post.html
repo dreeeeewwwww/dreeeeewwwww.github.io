@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 <html>
-  {% if page.previous %}
-    {% assign previous = page.previous %}
-  {% else %}
-    {% assign previous = site.posts[0] %}
-  {% endif %}
-  {% if page.next %}
-    {% assign next = page.next %}
-  {% else %}
-    {% assign last lastPostIndex = site.posts | size | minus: 1 %}
-    {% assign next = site.posts[lastPostIndex] %}
-  {% endif %}
   {% include head.html %}
   <body>
+    {% if page.previous %}
+      {% assign previous = page.previous %}
+    {% else %}
+      {% assign previous = site.posts[0] %}
+    {% endif %}
+    {% if page.next %}
+      {% assign next = page.next %}
+    {% else %}
+      {% assign last lastPostIndex = site.posts | size | minus: 1 %}
+      {% assign next = site.posts[lastPostIndex] %}
+    {% endif %}
     {% include nav.html %}
     <div class="container">
       <div class="row my-4 pb-0 pb-lg-4">
@@ -30,21 +30,23 @@
             <img class="img-fluid {% if page.img-border-show == true %}border border-grey{% endif %}" src="{{ page.img }}" />
           {% endif %}
           {{ content }}
-
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-4 my-4 pt-4 pt-lg-0 my-lg-0">
           <div class="d-none d-lg-block mb-4">
             <a class="next" href="{{next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
             &nbsp;&nbsp;
             <a class="prev" href="{{previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-            
           </div>
           {% if page.org != null %}
             <span class="d-block mb-2">{{ page.org }}</span>
           {% endif %}
           <h1>{{ page.title }}</h1>
-          {{ page.tech }}<br />
-          {{ page.excerpt }}
+          {% if page.tech %}
+            <p>{{ page.tech }}</p>
+          {% endif %}
+          {% if page.summary %}
+            <p class="mt-4">{{ page.summary }}</p>
+          {% endif %}
           {% if page.attribution != null %}
             <span class="d-block attribution text-grey">{{ page.attribution }}</span>
           {% endif %}

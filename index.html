@@ -5,29 +5,25 @@ layout: default
 ---
 <div class="container fade-in">
   <div class="row mt-4">
-    <div class="col-12">
-      <div class="card-columns">
-        {% for post in site.posts %}
-          <div class="card border-0 mb-4">
+    {% for post in site.posts %}
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+        <a href="{{ post.permalink }}">
+          <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title }} | {{ post.org }}" />
+        </a>
+        <div class="card-body">
+          <p class="card-text">
             <a href="{{ post.permalink }}">
-              <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title | post.org}}" />
+              {% if post.org != null %}
+                <small class="d-block mb-1 text-grey">{{ post.org }}</small>
+              {% endif %}
+              {{ post.title }}
+              {% if post.tech != null %}
+                <small class="d-block mt-1">{{ post.tech }}</small>
+              {% endif %}
             </a>
-            <div class="card-body">
-              <p class="card-text">
-                <a href="{{ post.permalink }}">
-                  {% if post.org != null %}
-                    <small class="d-block mb-1 text-grey">{{ post.org }}</small>
-                  {% endif %}
-                  {{ post.title }}
-                  {% if post.tech != null %}
-                    <small class="d-block mt-1">{{ post.tech }}</small>
-                  {% endif %}
-                </a>
-              </p>
-            </div>
-          </div>
-        {% endfor %}
+          </p>
+        </div>
       </div>
-    </div>
+    {% endfor %}
   </div>
 </div>
