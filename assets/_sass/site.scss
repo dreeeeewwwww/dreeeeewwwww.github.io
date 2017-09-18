@@ -27,8 +27,7 @@ strong{
       @include transition(all 0.2s ease-in-out);
       &:hover, &:active{
         border:none !important;
-        opacity:0.6;
-        color:inherit;
+        color:$green;
       }
     }
   }
