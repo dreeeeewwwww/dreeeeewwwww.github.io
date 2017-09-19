@@ -7,7 +7,7 @@ layout: default
   <div class="grid row mt-4" >
     <div class="grid-sizer col-12 col-sm-12 col-md-6 col-lg-4"></div>
     {% for post in site.posts %}
-      <div class="grid-item col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="grid-item col-12 col-sm-12 col-md-6 col-lg-4 mb-4 {% if  post.masonry-scale %}{{ post.masonry-scale }}{% endif %}">
         <div class="grid-item-content">
           <a href="{{ post.permalink }}">
             <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title }} | {{ post.org }}" />
