@@ -7,28 +7,66 @@ layout: default
     <div class="col-12">
       <div id='map' style='width: 100%; height: 600px;'></div>
       <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoiZHJlZWVlZXd3d3d3IiwiYSI6Ijg3MDYzN2Q1NjEwMWM0ZDNkM2UzOTgzMmEzMGMxMTJmIn0.KDGnu0dv1RPQhUL5q2f0JA';
-      var map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/dreeeeewwwww/cj80ct9rv7m9g2so3jfi0md83',
-          center: [-77.012164, 38.908569],
-          zoom: 12
-      });
-      map.on("load", function() {
-          var heatmap = new HexgridHeatmap(map, "hexgrid-heatmap", "waterway-label");
-          heatmap.setIntensity(15);
-          heatmap.setSpread(0.3);
-          heatmap.setData(bikeshare);
-          heatmap.update();
-          heatmap.setColorStops([
-              [0, "rgba(0,185,243,0)"],
-              [50, "rgba(0,185,243,0.5)"],
-              [130, "rgba(255,223,0,0.6)"],
-              [200, "rgba(255,105,0,0.6)"]
-          ])
-      });
-
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZHJlZWVlZXd3d3d3IiwiYSI6Ijg3MDYzN2Q1NjEwMWM0ZDNkM2UzOTgzMmEzMGMxMTJmIn0.KDGnu0dv1RPQhUL5q2f0JA';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v9',
+            center: [-77.012164, 38.908569],
+            zoom: 12
+        });
+        map.on("load", function() {
+            var heatmap = new HexgridHeatmap(map, "hexgrid-heatmap", "waterway-label");
+            heatmap.setIntensity(15);
+            heatmap.setSpread(0.05);
+            heatmap.setData(bikeshare);
+            heatmap.update();
+            heatmap.setColorStops([
+                [0, "rgba(0,185,243,0)"],
+                [20, "rgba(0,185,243,0.5)"],
+                [40, "rgba(255,223,0,0.6)"],
+                [60, "rgba(255,105,0,0.6)"]
+            ])
+        });
       </script>
+    </div>
+  </div>
+  <div class="row my-4 py-4">
+    <div class="col-12 col-md-4 mb-4 pb-4">
+      <h1>Mapping Capital Bikeshare rides from my nearest station</h1>
+      <small class="text-grey">
+        Mapbox GL<br />
+        Hexgrid Heatmap<br />
+        Capital Bikeshare Q1 2017 data
+      </small>
+    </div>
+    <div class="col-12 col-md-8">
+      <p>I was curious to see where Capital Bikeshare riders in my neighborhood were heading when checking out bikes from the station nearest to my house (1st and O St NW, ID 31519). The results are mostly what you'd expect, with rides generally terminating in busy parts of town (downtown, U Street, Dupont Circle, Columbia Heights).</p>
+      <p>Only a few riders went far afield, with a small cluster of trips ending on Kennedy St NW, and one single rider who made it to the Iwo Jima memorial in a blazingly fast 31 minutes. Though this is only data from a single station, it still illustrates how underserved Anacostia is within the system &rarr; <strong>zero</strong> rides ended in that part of the city.</p>
+      <p><strong>JS</strong></p>
+        <pre class="border border-grey">
+          <code>
+          mapboxgl.accessToken = 'pk.eyJ1IjoiZHJlZWVlZXd3d3d3IiwiYSI6Ijg3MDYzN2Q1NjEwMWM0ZDNkM2UzOTgzMmEzMGMxMTJmIn0.KDGnu0dv1RPQhUL5q2f0JA';
+          var map = new mapboxgl.Map({
+              container: 'map',
+              style: 'mapbox://styles/mapbox/dark-v9',
+              center: [-77.012164, 38.908569],
+              zoom: 12
+          });
+          map.on("load", function() {
+              var heatmap = new HexgridHeatmap(map, "hexgrid-heatmap", "waterway-label");
+              heatmap.setIntensity(15);
+              heatmap.setSpread(0.05);
+              heatmap.setData(bikeshare);
+              heatmap.update();
+              heatmap.setColorStops([
+                  [0, "rgba(0,185,243,0)"],
+                  [20, "rgba(0,185,243,0.5)"],
+                  [40, "rgba(255,223,0,0.6)"],
+                  [60, "rgba(255,105,0,0.6)"]
+              ])
+          });
+        </code>
+      </pre>
     </div>
   </div>
 </div>
