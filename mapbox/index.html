@@ -1,0 +1,34 @@
+---
+title: Mapbox
+layout: default
+---
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div id='map' style='width: 100%; height: 600px;'></div>
+      <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiZHJlZWVlZXd3d3d3IiwiYSI6Ijg3MDYzN2Q1NjEwMWM0ZDNkM2UzOTgzMmEzMGMxMTJmIn0.KDGnu0dv1RPQhUL5q2f0JA';
+      var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/dreeeeewwwww/cj80ct9rv7m9g2so3jfi0md83',
+          center: [-77.012164, 38.908569],
+          zoom: 12
+      });
+      map.on("load", function() {
+          var heatmap = new HexgridHeatmap(map, "hexgrid-heatmap", "waterway-label");
+          heatmap.setIntensity(15);
+          heatmap.setSpread(0.3);
+          heatmap.setData(bikeshare);
+          heatmap.update();
+          heatmap.setColorStops([
+              [0, "rgba(0,185,243,0)"],
+              [50, "rgba(0,185,243,0.5)"],
+              [130, "rgba(255,223,0,0.6)"],
+              [200, "rgba(255,105,0,0.6)"]
+          ])
+      });
+
+      </script>
+    </div>
+  </div>
+</div>
