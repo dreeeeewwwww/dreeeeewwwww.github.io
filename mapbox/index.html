@@ -16,15 +16,15 @@ layout: default
         });
         map.on("load", function() {
             var heatmap = new HexgridHeatmap(map, "hexgrid-heatmap", "waterway-label");
-            heatmap.setIntensity(15);
-            heatmap.setSpread(0.05);
+            heatmap.setIntensity(1);
+            heatmap.setSpread(0.1);
             heatmap.setData(bikeshare);
             heatmap.update();
             heatmap.setColorStops([
                 [0, "rgba(0,185,243,0)"],
-                [20, "rgba(0,185,243,0.5)"],
-                [40, "rgba(255,223,0,0.6)"],
-                [60, "rgba(255,105,0,0.6)"]
+                [30, "rgba(0,185,243,0.5)"],
+                [60, "rgba(255,223,0,0.6)"],
+                [120, "rgba(255,105,0,0.6)"]
             ])
         });
       </script>
@@ -40,8 +40,8 @@ layout: default
       </small>
     </div>
     <div class="col-12 col-md-8">
-      <p>I was curious to see where Capital Bikeshare riders in my neighborhood were heading when checking out bikes from the station nearest to my house (1st and O St NW, ID 31519). The results are mostly what you'd expect, with rides generally terminating in busy parts of town (downtown, U Street, Dupont Circle, Columbia Heights).</p>
-      <p>Only a few riders went far afield, with a small cluster of trips ending on Kennedy St NW, and one single rider who made it to the Iwo Jima memorial in a blazingly fast 31 minutes. Though this is only data from a single station, it still illustrates how Anacostia remains on the edge of the system. Zero rides from my nearest station ended in that part of the city.</p>
+      <p>I was curious to see where Capital Bikeshare riders in my neighborhood were heading when checking out bikes from the station nearest to my house (1st and O St NW, ID 31519). After plotting the destinations in a heatmap the results are mostly what you'd expect, with rides generally terminating in busy parts of town (downtown, Dupont Circle, Logan Circle).</p>
+      <p>Only a few riders went far afield, with a small cluster of trips ending on Kennedy St NW, a slightly larger cluster out towards Ivy City and the Arboretum, and one single rider who made it out to the Iwo Jima memorial. Though this is only data from a single station, it still illustrates how Anacostia remains on the edge of the system. Zero rides from my nearest station ended in that part of the city.</p>
       <p><strong>JS</strong></p>
         <pre class="border border-grey">
           <code>
@@ -54,15 +54,15 @@ layout: default
           });
           map.on("load", function() {
               var heatmap = new HexgridHeatmap(map, "hexgrid-heatmap", "waterway-label");
-              heatmap.setIntensity(15);
-              heatmap.setSpread(0.05);
+              heatmap.setIntensity(1);
+              heatmap.setSpread(0.01);
               heatmap.setData(bikeshare);
               heatmap.update();
               heatmap.setColorStops([
                   [0, "rgba(0,185,243,0)"],
-                  [20, "rgba(0,185,243,0.5)"],
-                  [40, "rgba(255,223,0,0.6)"],
-                  [60, "rgba(255,105,0,0.6)"]
+                  [30, "rgba(0,185,243,0.5)"],
+                  [60, "rgba(255,223,0,0.6)"],
+                  [120, "rgba(255,105,0,0.6)"]
               ])
           });
         </code>
