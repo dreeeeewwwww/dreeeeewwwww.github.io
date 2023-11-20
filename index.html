@@ -5,9 +5,8 @@ layout: default
 ---
 <div class="container fade-in">
   <div class="grid row mt-2 mt-sm-4" >
-    <div class="grid-sizer col-12 col-sm-12 col-md-6 col-lg-4"></div>
     {% for post in site.posts %}
-      <div class="grid-item col-12 col-sm-12 col-md-6 col-lg-4 mb-4 {% if  post.masonry-scale %}{{ post.masonry-scale }}{% endif %} no-gutters-xs mx-auto mx-lg-0">
+      <div class="grid-item col-12 col-sm-12 col-md-6 col-lg-4 mb-4 {% if  post.feature-scale %}{{ post.feature-scale }}{% endif %} no-gutters-xs mx-auto mx-lg-0">
         <div class="grid-item-content">
           <a href="{{ post.permalink }}">
             <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title }} | {{ post.org }}" />
@@ -30,18 +29,6 @@ layout: default
     {% endfor %}
   </div>
 </div>
-<script type="text/javascript">
-// init Masonry
-var $grid = $('.grid').masonry({
-  itemSelector: '.grid-item',
-  columnWidth: '.grid-sizer',
-  percentPosition: true
-});
-// layout Masonry after each image loads
-$grid.imagesLoaded().progress( function() {
-  $grid.masonry('layout');
-});
-</script>
 {% comment %}
 <div class="container fade-in">
   <div class="row mt-4">
