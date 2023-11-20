@@ -223,10 +223,10 @@ a.prev, a.next{
 // Text helpers
 .text-green{color:$green !important;}
 .text-grey{
-  color:$grey-c1 !important;
+  color:$grey !important;
   a{
-    color:$grey-c1;
-    border-bottom:1px solid transparent;
+    color:$grey;
+    border-bottom:1px solid;
     text-decoration:none;
     &:hover{
       color:$green;

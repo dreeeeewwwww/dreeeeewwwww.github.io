@@ -6,24 +6,23 @@ layout: default
 <div class="container fade-in">
   <div class="grid row mt-2 mt-sm-4" >
     {% for post in site.posts %}
-      <div class="grid-item col-12 col-sm-12 col-md-6 col-lg-4 mb-4 {% if  post.feature-scale %}{{ post.feature-scale }}{% endif %} no-gutters-xs mx-auto mx-lg-0">
+      <div class="grid-item col-12 mb-4 {% if  post.feature-scale %}{{ post.feature-scale }}{% endif %} no-gutters-xs mx-auto mx-lg-0">
         <div class="grid-item-content">
+          {% comment %}
           <a href="{{ post.permalink }}">
-            <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title }} | {{ post.org }}" />
+            <img class="{% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title }} | {{ post.org }}" width="50%" />
           </a>
-          <div class="card-body">
-            <p class="card-text">
-              <a href="{{ post.permalink }}">
-                {% if post.org != null %}
-                  <small class="d-block mb-1 text-grey">{{ post.org }}</small>
-                {% endif %}
-                {{ post.title }}
-                {% if post.tech != null %}
-                  <small class="d-block mt-1">{{ post.tech }}</small>
-                {% endif %}
-              </a>
-            </p>
-          </div>
+          {% endcomment %}
+          <a href="{{ post.permalink }}">
+            {% if post.org != null %}
+              <small class="d-block mb-1 text-grey">{{ post.org }}</small>
+            {% endif %}
+            {{ post.title }}
+            {% if post.tech != null %}
+              <small class="d-block mt-1">{{ post.tech }}</small>
+            {% endif %}
+            <small class="text-grey">{{ post.year }}</small>
+          </a>
         </div>
       </div>
     {% endfor %}
@@ -35,7 +34,7 @@ layout: default
     {% for post in site.posts %}
       <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
         <a href="{{ post.permalink }}">
-          <img class="card-img-top {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title }} | {{ post.org }}" />
+          <img class=" {% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title }} | {{ post.org }}" />
         </a>
         <div class="card-body">
           <p class="card-text">
