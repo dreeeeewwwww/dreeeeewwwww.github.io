@@ -4,30 +4,47 @@ nav: Work
 layout: default
 ---
 <div class="container fade-in">
-  <div class="grid row mt-2 mt-sm-4" >
-    {% for post in site.posts %}
-      <div class="grid-item col-12 mb-4 {% if  post.feature-scale %}{{ post.feature-scale }}{% endif %} no-gutters-xs mx-auto mx-lg-0">
-        <div class="grid-item-content">
-          {% comment %}
-          <a href="{{ post.permalink }}">
-            <img class="{% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title }} | {{ post.org }}" width="50%" />
-          </a>
-          {% endcomment %}
-          <a href="{{ post.permalink }}">
-            {% if post.org != null %}
-              <small class="d-block mb-1 text-grey">{{ post.org }}</small>
-            {% endif %}
-            {{ post.title }}
-            {% if post.tech != null %}
-              <small class="d-block mt-1">{{ post.tech }}</small>
-            {% endif %}
-            <small class="text-grey">{{ post.year }}</small>
-          </a>
-        </div>
+  
+  {% for post in site.posts %}
+    <div class="row row-index pt-4 mt-2 mt-sm-4">
+      <div class="col-2">
+        <a href="{{ post.permalink }}">
+          
+          
+          <small class="text-grey">{{ post.year }}</small>
+        </a>
       </div>
-    {% endfor %}
-  </div>
+      <div class=" col-8  {% if  post.feature-scale %}{{ post.feature-scale }}{% endif %} mx-auto mx-lg-0">        
+        {% if post.org != null %}
+            <small class="d-block mb-1 text-grey">{{ post.org }}</small>
+          {% endif %}
+        <a href="{{ post.permalink }}">
+          
+          {{ post.title }}
+          
+        </a>
+        {% comment %}
+        {% if post.tech != null %}
+          <small class="d-block mt-1">{{ post.tech }}</small>
+        {% endif %}
+        {% endcomment %}
+      </div>
+        {% comment %}
+        <a href="{{ post.permalink }}">
+          <img class="{% if post.img-border == true %}border border-grey{% endif %}" src="{{ post.img }}" alt="{{ post.title }} | {{ post.org }}" width="50%" />
+        </a>
+        {% endcomment %}  
+        <div class="col-2">
+          
+        
+        </div>      
+    </div>
+      
+  {% endfor %}  
 </div>
+
+
+
 {% comment %}
 <div class="container fade-in">
   <div class="row mt-4">

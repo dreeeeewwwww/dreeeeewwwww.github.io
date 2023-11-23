@@ -19,3 +19,23 @@
   font-style:normal;
   font-stretch:normal;
 }
+@font-face {
+  font-family:'BlancoWeb';
+  src: url('../fonts/Blanco-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family:'BlancoWeb-italic';
+  font-style:italic;
+  src: url('../fonts/Blanco-Italic.woff2') format('woff2');
+}
+@font-face {
+  font-family:'BlancoWeb-bold';
+  font-weight:bold;
+  src: url('../fonts/Blanco-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family:'BlancoWeb-bold-italic';
+  font-weight:bold;
+  font-style:italic;
+  src: url('../fonts/Blanco-BoldItalic.woff2') format('woff2');
+} 
