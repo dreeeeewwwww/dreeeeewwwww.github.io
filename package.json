@@ -1,0 +1,26 @@
+{
+    "name": "dreeeeewwwww.github.io",
+    "version": "6.0",
+    "description": "",
+    "main": "index.html",
+    "engines": {
+        "node": ">=20.11.1"
+    },
+    "scripts": {
+        "build": "bundle exec jekyll build",
+        "dev": "bundle exec jekyll serve --livereload",
+        "start": "bundle exec jekyll serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dreeeeewwwww/dreeeeewwwww.github.io"
+    },
+    "author": "",
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/dreeeeewwwww/dreeeeewwwww.github.io/issues"
+    },
+    "devDependencies": {
+
+    }
+}
