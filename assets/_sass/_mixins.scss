@@ -11,9 +11,7 @@
 }
 @mixin inter() {
   font-family:'inter', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
-}
-@mixin blanco-web() {
-  font-family:'BlancoWeb', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1, 'cv05' on;
 }
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
