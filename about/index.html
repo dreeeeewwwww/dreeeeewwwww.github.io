@@ -2,22 +2,98 @@
 title: About
 nav: About
 layout: default
+
+experience:
+  - name: US Digital Service
+    year: 2019-present
+    type: Federal
+    url: https://www.usds.gov
+  - name: Defense Digital Service
+    year: 2019
+    type: Federal
+    url: https://www.dds.mil
+  - name: "US Office of Personnel Management"
+    year: 2018-2019
+    type: Federal (contract)
+    url: https://www.opm.gov
+  - name: "KaBOOM!"
+    year: 2013-2018
+    type: Non-profit
+    url: https://kaboom.org
+  - name: "Media Matters for America"
+    year: 2008-2013
+    type: Non-profit
+    url: https://www.mediamatters.org
+contact:
+  - name: "Email"
+    url: "hello@drewgardner.net"
+  - name: "GitHub"
+    url: "http://www.github.com/dreeeeewwwww"
+  - name: "Linkedin"
+    url: "http://www.linkedin.com/in/drew-gardner"
 ---
 <div class="container fade-in">
   <div class="row mt-0 mt-sm-4 pb-4 justify-content-between">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-6 order-2 order-sm-2 order-md-2 order-lg-2 mx-auto mx-lg-0">
-      <p>I'm a designer and front-end engineer with 10 years of experience in technical and creative content development, user interface design, and design direction for mission-driven organizations.</p>
-      <p>Previously I was a clerk at a Blockbuster Video, cast wax hand molds at a renaissance festival, and placed headstones at a graveyard. I live in Washington, DC, and have been collecting records since high school. I just started cataloging them all in Discogs ... only a few hundred or so more to go ...</p>
-      <p class="about-linx">
-        <a href="mailto:hello@drewgardner.net" />Email</a>
-        &nbsp;&nbsp;
-        <a href="http://www.github.com/dreeeeewwwww" target="_blank"/>GitHub</a>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-8 order-2 order-sm-2 order-md-2 order-lg-2 mx-auto mx-lg-0">
+      <h1 class="mb-5">{{ page.title }}</h1>
+      {{ page.background }}
+      <p>I'm a multi-disciplinary designer based in Washington, DC. I have 16 years of experience in user research, user interface
+        and user experience design, service design, and design direction for mission-driven organizations.</p>
+        <p>I've ideated and iterated alongside of users, and shipped production code on web applications and enterprise systems. I've worked on the federal COVID-19 response, planned and conducted research in a combat theater, and helped support the construction of hundreds of playgrounds across North America.</p>
+        <p>I'm currently a design lead at the <a href="https://usds.gov">US Digital Service</a>.</p>
+        <p aria-label="Email address and social links">
+          {% for item in page.contact %}
+            {% if item.name == "Email" %}
+              <a href="mailto:{{ item.url }}" />{{ item.name }}</a>{% unless forloop.last %} , {% endunless %}
+              {% else %}
+              <a href="{{ item.url }}" target="_blank"/>{{ item.name }}</a>{% unless forloop.last %} , {% endunless %}
+            {% endif %}
+           {% endfor %} 
+        </p>
+      <h2>Experience</h2>
+      
+      <table class="table inter-tnum">
+        <caption>List of work experience by organization, year, and type</caption>
+        <tbody >
+          {% for item in page.experience %}
+          <tr >
+            <td class="bg-transparent">{{ item.name }}</td>
+            <td class="bg-transparent">{{ item.year }}</td>           
+            <td class="bg-transparent"><span class="badge text-bg-primary">{{ item.type }}</span></td>            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+      <h2>Education</h2>
+      <p><strong>Syracuse University</strong> (2007)<br /> SI Newhouse School of Public Communications<br />BS Visual &amp; Interactive Communications [Photography, graphic design, journalism]
       </p>
+      
+      <h2>Nerd alert</h2>
+      <p>Last 10 movies watched. Via Letterboxd  https://letterboxd.com/dreeeeewwwww/rss/</p>
+      <table class="table inter-tnum">
+        <thead>
+          <tr>
+            <th scope="col">Title</td>
+            <th scope="col">Watched</td>
+            <th scope="col">Rating</td>
+          </tr>
+        </thead>
+        <tbody id="letterboxd-rss">
+          <tr class="discogs-spinner"><td><i class="fa fa-hand-peace-o fa-spin fa-3x "></i></td></tr>
+        </tbody>
+        
+      </table>
+
+      <h2>Colophon</h2>
+      <p>Lorem ipsum dolor sit amet. Inter.</p>
+     
     </div>
     <div class="col-12 col-sm-6 col-md-6 col-lg-4 order-1 order-sm-1 order-md-1 order-lg-2 no-gutters-xs mx-auto mx-lg-0 ">
-      <img class="img-fluid mb-4 pb-2 pb-sm-2 moi" src="/assets/image/yoyoyo.jpg" />
+      {% comment %}<img class="img-fluid mb-4 pb-2 pb-sm-2 moi" src="/assets/image/yoyoyo.jpg" />{% endcomment %}
     </div>
   </div>
+  {% comment %}
   <div class="row mt-4">
     <div class="col-12 discogs-wrap">
       <p><strong>Record Collection</strong>&nbsp;&nbsp;<a href="https://www.discogs.com/developers/" target="_blank"><span class="text-grey">via Discogs api</span></a></p>
@@ -38,15 +114,56 @@ layout: default
       </table>
     </div>
   </div>
-
+  {% endcomment %}
   </div>
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
   $("#nav-about").addClass("active");
+
+  // Note: some RSS feeds can't be loaded in the browser due to CORS security.
+  // To get around this, you can use a proxy.
+  const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
+
+  // Show loading spinner
+  $(".discogs-spinner").show();
+
+  let parser = new RSSParser({
+    // Parse custom Letterboxd namespaces
+    customFields: {
+      item: [
+        ['letterboxd:filmTitle', 'filmTitle'],
+        ['letterboxd:filmYear', 'filmYear'],
+        ['letterboxd:rewatch', 'rewatch'],
+        ['letterboxd:watchedDate', 'watchedDate'],
+        ['letterboxd:memberRating', 'memberRating']
+      ]
+    }
+  });
+  parser.parseURL(CORS_PROXY + 'https://letterboxd.com/dreeeeewwwww/rss/', function(err, feed) {
+    
+    // Hide loading spinner on parse
+    $(".discogs-spinner").hide();
+
+    if (err) throw err;
+    console.log(feed.title);
+    feed.items.slice(0, 10).forEach(function(entry) {
+      let rewatched;
+      if (entry.rewatch == 'Yes') { 
+        rewatched = ' <i class="fa fa-refresh" title="Rewatched"></i>';
+      } else {
+        rewatched = '';
+      }
+      content =
+      '<tr><td>'+entry.filmTitle+' ('+entry.filmYear+')</td><td>'+entry.watchedDate+''+rewatched+'</td><td>'+entry.memberRating+'</tr>';
+      $(content).appendTo("#letterboxd-rss");
+    })
+  })
+
+  /*
   $(".discogs-spinner").show();
   jQuery.getJSON("https://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=&sort=added&sort_order=desc&per_page=1000", function(data) {
-    $(".discogs-spinner").hide();
+    
     if (data.pagination.items > 1) {
       $.each(data.releases, function(i,release){
         content =
@@ -61,5 +178,6 @@ $(document).ready(function(){
       $("#discogs-collection").append("<tr class='discogs-error'><td>Error! Something is up with the Discogs API.</td></tr>");
     }
   });
+  */
 });
 </script>

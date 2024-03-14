@@ -16,27 +16,10 @@
     {% include nav.html %}
     <div class="container">
       <div class="row my-4 pb-0 pb-lg-4">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-          <div class="d-block d-lg-none mb-4">
-            <a class="next d-inline-block pull-left" href="{{next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
-            <a class="prev d-inline-block pull-right" href="{{previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-          </div>
-          <div class="clearfix d-lg-none">&nbsp;</div>
-          {% if page.video != null %}
-            <div class="embed-responsive embed-responsive-16by9 mb-4" id="play-matters">
-              <iframe id="{{ page.video }}" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/{{ page.video }}" frameborder="0" allowfullscreen></iframe>
-            </div>
-          {% else %}
-            <img class="img-fluid {% if page.img-border-show == true %}border border-grey{% endif %}" src="{{ page.img }}" />
-          {% endif %}
-          {{ content }}
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 offset-lg-1 my-4 pt-4 pt-lg-0 my-lg-0">
+          
         </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-4 my-4 pt-4 pt-lg-0 my-lg-0">
-          <div class="d-none d-lg-block mb-4">
-            <a class="next" href="{{next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
-            &nbsp;&nbsp;
-            <a class="prev" href="{{previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-          </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
           {% if page.org != null %}
             <span class="d-block mb-2">{{ page.org }}</span>
           {% endif %}
@@ -44,6 +27,28 @@
           {% if page.tech %}
             <p>{{ page.tech }}</p>
           {% endif %}
+          {% if page.project-details %}
+            <h2>Project details</h2>
+            <ul>
+              {% for detail in page.project-details %}
+                <li><strong>{{ detail.name }}</strong>: {{ detail.value }}</li>
+              {% endfor %}            
+            </ul>
+          {% endif %}
+          <div class="clearfix d-lg-none">&nbsp;</div>
+          {% if page.video != null %}
+            <div class="embed-responsive embed-responsive-16by9 mb-4" id="play-matters">
+              <iframe id="{{ page.video }}" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/{{ page.video }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+          {% else %}
+            <img class="img-fluid mx-auto {% if page.img-border-show == true %}border border-grey{% endif %}" src="{{ page.img }}" />
+          {% endif %}
+          
+          {{ content }}
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 offset-lg-2 my-4 pt-4 pt-lg-0 my-lg-0">
+          
+          
           {% if page.summary %}
             <p class="mt-4">{{ page.summary }}</p>
           {% endif %}

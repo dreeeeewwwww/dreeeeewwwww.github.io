@@ -1,2 +1,8 @@
+# SASS
 sass:
     sass_dir: ../assets/_sass
+
+# Exclude from processing
+exclude: []
+
+

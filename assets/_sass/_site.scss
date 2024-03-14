@@ -8,34 +8,41 @@ h1, h2, h3, h4, h5, h6{
   @include inter();
 }
 h1{
-  font-size:2em;
+  font-size:3em;
   line-height:1em;
-  font-weight:700;
+  font-weight:600;
+
+  span{
+    font-weight:400;
+  }
+}
+h2 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 3em 0 1em 0;
 }
 strong{
-  font-weight:700;
+  font-weight:600;
 }
 .navigation{
   font-size:1em;
   line-height:1em;
   font-weight:600;
   @include inter();
-
-  background: #ffffff;
-  border-bottom: 1px solid #ffffff;
+  background: transparent;
 
   .name{
-    color:$body;
-       
+    color:$body;      
 
     a{
       color:$body;
       border:none !important;
-      opacity:1;
+      opacity:1;      
       @include transition(all 0.2s ease-in-out);
+      text-decoration: underline;
       &:hover, &:active{
         border:none !important;
-        color:$green;
+        color:$blue;
       }      
     }
     span{
@@ -43,55 +50,65 @@ strong{
     }
   }
   .nav-linx{
-    a, a h1{
+    a {
       display:initial;
       font-size:inherit;
       line-height:inherit;
       color:$body;
       text-decoration:none;
-      border-bottom:3px solid transparent;
-      padding:5px;
+      border-width: 3px;
+      border-style: outset;
+      border-color: $blue;
+      padding:6px 9px;
       &:hover{
-        border-bottom:3px solid $green;
-        color:$body;
+        border-color: $blue;
+        color:$blue;
+        border-style:inset;
       }
     }
     a.active{
-      color:$green;
-      border:3px solid $green;
-    }
-    a.active h1{
-      color:$green;
+      color: $white;
+      border-color: $blue;
+      border-style: outset;
+      background-color: $blue;
+      &:hover{
+        border-style:inset;
+      }
     }
   }
 }
 footer{
+  background: #ffffff;
 
   #footer-work, #footer-about{
     color:$body;
     border-bottom:2px solid transparent;
     padding-bottom:4px;
-
-    &:hover{
-      color:$body;
-      border-color:$green;
-    }
+    text-decoration: none;
+    
   }
   #footer-work.active, #footer-about.active{
-    color:$green;
-    border-color:$green;
-
+    color:$body;
+    border-color:$body;
     &:hover{
-      color:$body;
-      border-color:$green;
+      color:$blue;
+      border-color:$blue;
     }
   }
 }
 a{
   @include transition(all 0.2s ease-in-out);
-  text-decoration:none;
-  &:hover, &:link, &:visited, &:active{
-    text-decoration:none;
+  color: $body;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: $blue;
+  text-decoration-thickness: 2px;
+
+  &:hover{
+    color: $blue;
+  }
+  &:link, &:visited, &:active {
+
   }
 }
 
@@ -130,12 +147,21 @@ a{
     @include transform(none !important);
   }
 }
+// BOOTSTRAP OVERRIDES
+.badge {
+  font-weight: 400;
+ }
+ .table {
+    td, th {
+      background: transparent;
+    }
+ }
 // INDEX
 p{
   a{
-    color:$body;
+    
     &:hover, &:active{
-      color:$green;
+      
     }
   }
 
@@ -144,12 +170,11 @@ p{
   a{
     color:$grey-c1;
     border-bottom:1px solid $grey-c1;
-    text-decoration:none;
+ 
     padding-bottom:3px;
     &:hover, &:active{
       color:$green;
       border-color: $green;
-      text-decoration:none;
     }
   }
 }
@@ -162,13 +187,10 @@ p{
 }
 .about-linx{
   a{
-    border-bottom:1px solid $body;
-    color:$body;
-    padding-bottom:3px;
+    
     @include transition(all 0.2s ease-in-out);
     &:hover{
-      border-color:$green;
-      color:$green;
+      
     }
   }
 }
@@ -239,8 +261,7 @@ a.prev, a.next{
   color:$grey !important;
   a{
     color:$grey;
-    border-bottom:1px solid;
-    text-decoration:none;
+   
     &:hover{
       color:$green;
       border-color:$green;

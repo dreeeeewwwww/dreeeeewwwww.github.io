@@ -1,17 +1,19 @@
 <footer>
   <div class="container">
-    <div class="row mt-2 mb-2 py-4 my-sm-4 py-sm-4">
-      <div class="col-6 col-sm-6 col-md-8 ">
-          &copy; 2007 - {{ 'now' | date: "%Y" }}<br />
-        <small class="text-grey">
-          <a href="https://github.com/dreeeeewwwww/dreeeeewwwww.github.io" target="_blank"> Version: 6.0&nbsp;&nbsp;<i class="fa fa-github" aria-hidden="true"></i></a>
-        </small>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4  mb-4 pb-2 pb-sm-0 mb-sm-0 text-right">
+    <div class="row mt-2 py-5 mt-sm-4 pt-sm-4">
+      
+      <div class="col-10 mb-4 pb-2 pb-sm-0 mb-sm-0">
         <a id="footer-work" {% if page.nav == 'Work' %}class="active"{% endif %} href="/">Work</a>
-        &nbsp;&nbsp;
+        <br />
         <a id="footer-about" {% if page.nav == 'About' %}class="active"{% endif %} href="/about/">About</a>
       </div>
+      <div class="col-2 ">
+        &copy; 2007 - {{ 'now' | date: "%Y" }}<br />
+        <span class="text-grey">
+          <i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/dreeeeewwwww/dreeeeewwwww.github.io" target="_blank"> Version: 6.0</a>
+        </span>
+      </div>
+
     </div>
   </div>
 </footer>

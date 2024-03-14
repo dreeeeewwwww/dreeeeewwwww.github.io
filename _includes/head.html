@@ -34,7 +34,10 @@
     <script type="text/javascript" src="https://unpkg.com/rbush@2.0.1/rbush.min.js"></script>
     <script type="text/javascript" src="/assets/javascript/turf_MonSep252017.min.js"></script>
     <script type="text/javascript" src="/assets/javascript/HexgridHeatmap.js"></script>
+  {% endif %}
 
+  {% if page.title == 'About' %}
+    <script src="/node_modules/rss-parser/dist/rss-parser.min.js"></script>
   {% endif %}
 
   <script>
