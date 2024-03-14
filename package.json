@@ -21,6 +21,6 @@
         "url": "https://github.com/dreeeeewwwww/dreeeeewwwww.github.io/issues"
     },
     "devDependencies": {
-
+        "rss-parser": "3.13.0"
     }
 }
