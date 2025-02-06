@@ -6,60 +6,10 @@ layout: default
 <div class="container fade-in">
   <div class="row mt-0 mt-sm-4 pb-4 justify-content-between">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 order-2 order-sm-2 order-md-2 order-lg-2 mx-auto mx-lg-0">
-      <p>I'm a designer and front-end engineer with 10 years of experience in technical and creative content development, user interface design, and design direction for mission-driven organizations.</p>
-      <p>Previously I was a clerk at a Blockbuster Video, cast wax hand molds at a renaissance festival, and placed headstones at a graveyard. I live in Washington, DC, and have been collecting records since high school. I just started cataloging them all in Discogs ... only a few hundred or so more to go ...</p>
+      <p>Multi-disciplinary designer with 16 years of experience in user research, user interface and user experience design, service design, and design direction for mission-driven organizations.</p>
       <p class="about-linx">
         <a href="mailto:hello@drewgardner.net" />Email</a>
-        &nbsp;&nbsp;
-        <a href="http://www.github.com/dreeeeewwwww" target="_blank"/>GitHub</a>
       </p>
     </div>
-    <div class="col-12 col-sm-6 col-md-6 col-lg-4 order-1 order-sm-1 order-md-1 order-lg-2 no-gutters-xs mx-auto mx-lg-0 ">
-      <img class="img-fluid mb-4 pb-2 pb-sm-2 moi" src="/assets/image/yoyoyo.jpg" />
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-12 discogs-wrap">
-      <p><strong>Record Collection</strong>&nbsp;&nbsp;<a href="https://www.discogs.com/developers/" target="_blank"><span class="text-grey">via Discogs api</span></a></p>
-      <div class="table-responsive">
-      <table class="table discogs-table">
-        <thead>
-          <tr>
-            <th>Artist</th>
-            <th>Title</th>
-            <th class="hidden-xs">Label</th>
-            <th class="text-center hidden-xs"><i class="fa fa-headphones"></i></th>
-            <th class="text-center"><i class="fa fa-calendar-o "></i></th>
-          </tr>
-        </thead>
-        <tbody id="discogs-collection">
-          <tr class="discogs-spinner"><td><i class="fa fa-hand-peace-o fa-spin fa-3x "></i></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
   </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function(){
-  $("#nav-about").addClass("active");
-  $(".discogs-spinner").show();
-  jQuery.getJSON("https://api.discogs.com/users/astronaut_jones/collection/folders/0/releases?callback=&sort=added&sort_order=desc&per_page=1000", function(data) {
-    $(".discogs-spinner").hide();
-    if (data.pagination.items > 1) {
-      $.each(data.releases, function(i,release){
-        content =
-        '<tr class="discogs-link" data-href="https://www.discogs.com/release/'+release.basic_information.id+'"><td>'+release.basic_information.artists[0].name+'</td><td>'+release.basic_information.title+'</td><td class="hidden-xs">'+release.basic_information.labels[0].name+'</td><td class="text-center hidden-xs">'+release.basic_information.formats[0].descriptions[0]+'</td><td class="text-center">'+release.basic_information.year+'</td></tr>';
-        $(content).appendTo("#discogs-collection");
-      });
-      $(".discogs-link").click(function() {
-        window.open($(this).data("href"));
-      });
-    }
-    else{
-      $("#discogs-collection").append("<tr class='discogs-error'><td>Error! Something is up with the Discogs API.</td></tr>");
-    }
-  });
-});
-</script>
