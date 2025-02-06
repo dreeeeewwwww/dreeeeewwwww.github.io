@@ -2,6 +2,7 @@
 <html>
   {% include head.html %}
   <body>
+  {% comment %}
     {% if page.previous %}
       {% assign previous = page.previous %}
     {% else %}
@@ -58,5 +59,6 @@
       </div>
     </div>
     {% include footer.html %}
+ {% endcomment %}   
   </body>
 </html>
