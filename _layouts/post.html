@@ -14,10 +14,12 @@
       {% assign last lastPostIndex = site.posts | size | minus: 1 %}
       {% assign next = site.posts[lastPostIndex] %}
     {% endif %}
+    {% endcomment %}
     {% include nav.html %}
     <div class="container">
       <div class="row my-4 pb-0 pb-lg-4">
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+          {% comment %}
           <div class="d-block d-lg-none mb-4">
             <a class="next d-inline-block pull-left" href="{{next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
             <a class="prev d-inline-block pull-right" href="{{previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
@@ -31,8 +33,10 @@
             <img class="img-fluid {% if page.img-border-show == true %}border border-grey{% endif %}" src="{{ page.img }}" />
           {% endif %}
           {{ content }}
+          {% endcomment %}
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-4 my-4 pt-4 pt-lg-0 my-lg-0">
+          {% comment %}
           <div class="d-none d-lg-block mb-4">
             <a class="next" href="{{next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
             &nbsp;&nbsp;
@@ -55,10 +59,10 @@
             <a class="next d-inline-block pull-left" href="{{next.url}}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
             <a class="prev d-inline-block pull-right" href="{{previous.url}}">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
           </div>
+          {% endcomment %}
         </div>
       </div>
     </div>
     {% include footer.html %}
- {% endcomment %}   
   </body>
 </html>
